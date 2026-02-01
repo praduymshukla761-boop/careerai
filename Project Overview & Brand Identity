@@ -1,0 +1,134 @@
+Blackbox IDEToggle Sidebar
+
+Upgrade
+
+Share
+
+Build me a full website for an AI-Powered Resume & Career Builder tool.
+
+
+The website should include:
+
+
+
+A homepage with SEO-friendly title, tagline, and hero section
+
+A pricing page with three subscription plans
+
+A features page that explains the AI Resume Generator, Portfolio Builder, Cover Letter Writer, and Templates
+
+A contact page with a lead form
+
+A user dashboard page wireframe
+
+Responsive layout with modern UI/UX
+
+A logo and color scheme suggestion
+
+SEO optimized copy for Google search
+
+Monetization set up: subscription + payment gateway
+
+HTML/CSS/JS code production (optional: React or Next.js)
+
+
+Also include:
+
+
+
+A list of required pages
+
+Sitemap
+
+Meta description and keywords
+Typography:
+Headings: Inter or Plus Jakarta Sans (bold weights)
+Body: Inter or Open Sans (regular weights)
+Monospace: JetBrains Mono (for technical features)
+
+
+Google Analytics + basic SEO setup
+
+Demo content (dummy text and images)
+
+Optional: Integrations (like Stripe, Firebase, Zapier)
+
+
+Please generate:
+
+
+
+HTML/CSS/JS code
+
+All website copy
+
+Wireframes / layout instructions
+
+Hosting + domain setup guide
+
+Read more
+Copy message
+Edit message
+
+
+Thought for a moment
+CareerAI - Complete Website Build
+1. Project Overview & Brand Identity
+Brand Name: CareerAI
+Tagline:
+"Land Your Dream Job with AI-Powered Precision"
+
+Value Proposition:
+CareerAI is an intelligent career development platform that leverages artificial intelligence to create professional resumes, portfolios, and cover letters that stand out to recruiters and ATS systems. Our platform combines cutting-edge AI technology with industry best practices to help job seekers accelerate their career growth.
+
+Logo Suggestion:
+The CareerAI logo should feature a modern, minimalist design combining a stylized resume/document icon with AI elements. Consider a hexagonal shape representing structure and technology, with subtle gradient effects transitioning from deep blue to teal. The typography should be clean and modern using sans-serif fonts like Inter or Poppins, with "AI" slightly emphasized or in a different weight to reinforce the technological aspect.
+
+Color Scheme:
+Color
+
+Hex Code
+
+Usage
+
+Primary Blue
+
+#2563EB
+
+Main brand color, CTAs, links
+
+Dark Navy
+
+#1E293B
+
+Headers, footer, body text
+
+Teal Green
+
+#0D9488
+
+Success states, trust indicators
+
+Coral Accent
+
+#F97316
+
+Highlight buttons, important CTAs
+
+Light Gray
+
+#F8FAFC
+
+Backgrounds, section dividers
+
+White
+
+#FFFFFF
+
+Content cards, navigation
+
+Soft Gray Text
+
+#64748B
+
+Secondary text, descriptions
