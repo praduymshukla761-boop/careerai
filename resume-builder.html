@@ -1,3 +1,86 @@
 <a href="resume-builder.html">
   <button>Create Resume</button>
 </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume Builder – CareerAI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+    }
+    header {
+      background: #2563eb;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    .container {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+    }
+    .form, .preview {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    h3 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>Resume Builder</h2>
+</header>
+
+<div class="container">
+  <div class="form">
+    <h3>Your Details</h3>
+    <input id="name" placeholder="Full Name">
+    <input id="role" placeholder="Job Title">
+    <textarea id="summary" placeholder="Professional Summary"></textarea>
+  </div>
+
+  <div class="preview">
+    <h3 id="p-name">Your Name</h3>
+    <p id="p-role">Your Job Title</p>
+    <p id="p-summary">Your summary will appear here...</p>
+  </div>
+</div>
+
+<script>
+  const nameInput = document.getElementById("name");
+  const roleInput = document.getElementById("role");
+  const summaryInput = document.getElementById("summary");
+
+  nameInput.oninput = () => {
+    document.getElementById("p-name").innerText = nameInput.value;
+  };
+  roleInput.oninput = () => {
+    document.getElementById("p-role").innerText = roleInput.value;
+  };
+  summaryInput.oninput = () => {
+    document.getElementById("p-summary").innerText = summaryInput.value;
+  };
+</script>
+
+</body>
+</html>
