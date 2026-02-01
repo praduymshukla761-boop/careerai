@@ -65,11 +65,40 @@
     <p id="p-summary">Your summary will appear here...</p>
   </div>
 </div>
-
 <script>
   const nameInput = document.getElementById("name");
   const roleInput = document.getElementById("role");
   const summaryInput = document.getElementById("summary");
+
+  const pName = document.getElementById("p-name");
+  const pRole = document.getElementById("p-role");
+  const pSummary = document.getElementById("p-summary");
+
+  // Load saved data
+  nameInput.value = localStorage.getItem("name") || "";
+  roleInput.value = localStorage.getItem("role") || "";
+  summaryInput.value = localStorage.getItem("summary") || "";
+
+  pName.innerText = nameInput.value || "Your Name";
+  pRole.innerText = roleInput.value || "Your Job Title";
+  pSummary.innerText = summaryInput.value || "Your summary will appear here...";
+
+  nameInput.oninput = () => {
+    localStorage.setItem("name", nameInput.value);
+    pName.innerText = nameInput.value;
+  };
+
+  roleInput.oninput = () => {
+    localStorage.setItem("role", roleInput.value);
+    pRole.innerText = roleInput.value;
+  };
+
+  summaryInput.oninput = () => {
+    localStorage.setItem("summary", summaryInput.value);
+    pSummary.innerText = summaryInput.value;
+  };
+</script>
+
 
   nameInput.oninput = () => {
     document.getElementById("p-name").innerText = nameInput.value;
