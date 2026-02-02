@@ -1,127 +1,193 @@
-<a href="resume-builder.html">
-  <button>Create Resume</button>
-</a>
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Resume Builder – CareerAI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>CareerAI – One-Click Resume Builder</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8fafc;
-    }
-    header {
-      background: #2563eb;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
-    .container {
-      display: flex;
-      gap: 20px;
-      padding: 20px;
-    }
-    .form, .preview {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      width: 50%;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    h3 {
-      margin-top: 0;
-    }
-  </style>@media print {
-  body * {
-    visibility: hidden;
-  }
-  .preview, .preview * {
-    visibility: visible;
-  }
-  .preview {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-  }
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f1f5f9;
+  padding: 20px;
 }
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.template-buttons button {
+  width: 32%;
+  margin-right: 1%;
+  background: #0f172a;
+}
+
+#resume {
+  margin-top: 40px;
+  padding: 30px;
+  border-top: 3px solid #2563eb;
+}
+
+#resume h1 {
+  margin-bottom: 5px;
+}
+
+.section {
+  margin-top: 20px;
+}
+
+.section h3 {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+/* Templates */
+.classic { font-family: Arial, sans-serif; }
+.modern { font-family: Georgia, serif; border-left: 5px solid #2563eb; padding-left: 15px; }
+.executive { font-family: "Times New Roman", serif; background: #f8fafc; padding: 25px; }
+
+/* Print */
+@media print {
+  body * { visibility: hidden; }
+  #resume, #resume * { visibility: visible; }
+  #resume { position: absolute; top: 0; left: 0; width: 100%; }
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <h2>Resume Builder</h2>
-</header>
-
 <div class="container">
-  <div class="form">
-    <h3>Your Details</h3>
-    <input id="name" placeholder="Full Name">
-    <input id="role" placeholder="Job Title">
-<button onclick="downloadPDF()">Download PDF</button>
-  <div class="preview">
-    <h3 id="p-name">Your Name</h3>
-    <p id="p-role">Your Job Title</p>
-    <p id="p-summary">Your summary will appear here...</p>
+<h2>CareerAI – One-Click Resume Builder</h2>
+
+<input id="name" placeholder="Full Name">
+<input id="email" placeholder="Email">
+<input id="phone" placeholder="Phone Number">
+<input id="role" placeholder="Job Title">
+
+<textarea id="summary" placeholder="Professional Summary"></textarea>
+<textarea id="skills" placeholder="Skills (comma separated)"></textarea>
+<textarea id="experience" placeholder="Experience"></textarea>
+<textarea id="education" placeholder="Education"></textarea>
+
+<button onclick="aiImprove()">Improve with AI ✨</button>
+
+<div class="template-buttons">
+  <button onclick="setTemplate('classic')">Classic (Free)</button>
+  <button onclick="premiumTemplate('modern')">Modern (Pro)</button>
+  <button onclick="premiumTemplate('executive')">Executive (Pro)</button>
+</div>
+
+<button onclick="generateResume()">Generate & Download Resume</button>
+
+<!-- Resume Output -->
+<div id="resume" class="classic">
+  <h1 id="r-name"></h1>
+  <p id="r-contact"></p>
+
+  <div class="section">
+    <h3>Summary</h3>
+    <p id="r-summary"></p>
+  </div>
+
+  <div class="section">
+    <h3>Skills</h3>
+    <p id="r-skills"></p>
+  </div>
+
+  <div class="section">
+    <h3>Experience</h3>
+    <p id="r-exp"></p>
+  </div>
+
+  <div class="section">
+    <h3>Education</h3>
+    <p id="r-edu"></p>
   </div>
 </div>
-<script>function downloadPDF() {
-  window.print();
+</div>
+
+<script>
+let aiUsage = localStorage.getItem("aiUsage") || 0;
+let proUser = localStorage.getItem("proUser") || false;
+
+function aiImprove() {
+  if (aiUsage >= 1 && !proUser) {
+    alert("AI limit reached. Upgrade to Pro 🚀");
+    window.location.href = "pricing.html";
+    return;
+  }
+
+  aiUsage++;
+  localStorage.setItem("aiUsage", aiUsage);
+
+  document.getElementById("summary").value =
+    "Results-driven professional with strong analytical skills, proven performance, and a commitment to delivering measurable impact.";
+
+  document.getElementById("skills").value =
+    "Communication, Leadership, Problem Solving, Teamwork, Time Management";
+
+  document.getElementById("experience").value =
+    "• Delivered high-quality results across projects\n• Collaborated with cross-functional teams\n• Improved efficiency and performance";
+
+  alert("AI has improved your resume ✅");
 }
-  const nameInput = document.getElementById("name");
-  const roleInput = document.getElementById("role");
-  const summaryInput = document.getElementById("summary");
 
-  const pName = document.getElementById("p-name");
-  const pRole = document.getElementById("p-role");
-  const pSummary = document.getElementById("p-summary");
+function setTemplate(type) {
+  document.getElementById("resume").className = type;
+}
 
-  // Load saved data
-  nameInput.value = localStorage.getItem("name") || "";
-  roleInput.value = localStorage.getItem("role") || "";
-  summaryInput.value = localStorage.getItem("summary") || "";
+function premiumTemplate(type) {
+  if (!proUser) {
+    alert("This is a Pro template. Upgrade to unlock 🚀");
+    window.location.href = "pricing.html";
+    return;
+  }
+  setTemplate(type);
+}
 
-  pName.innerText = nameInput.value || "Your Name";
-  pRole.innerText = roleInput.value || "Your Job Title";
-  pSummary.innerText = summaryInput.value || "Your summary will appear here...";
+function generateResume() {
+  document.getElementById("r-name").innerText = document.getElementById("name").value;
+  document.getElementById("r-contact").innerText =
+    document.getElementById("email").value + " | " +
+    document.getElementById("phone").value;
 
-  nameInput.oninput = () => {
-    localStorage.setItem("name", nameInput.value);
-    pName.innerText = nameInput.value;
-  };
+  document.getElementById("r-summary").innerText = document.getElementById("summary").value;
+  document.getElementById("r-skills").innerText = document.getElementById("skills").value;
+  document.getElementById("r-exp").innerText = document.getElementById("experience").value;
+  document.getElementById("r-edu").innerText = document.getElementById("education").value;
 
-  roleInput.oninput = () => {
-    localStorage.setItem("role", roleInput.value);
-    pRole.innerText = roleInput.value;
-  };
-
-  summaryInput.oninput = () => {
-    localStorage.setItem("summary", summaryInput.value);
-    pSummary.innerText = summaryInput.value;
-  };
-</script>
-
-
-  nameInput.oninput = () => {
-    document.getElementById("p-name").innerText = nameInput.value;
-  };
-  roleInput.oninput = () => {
-    document.getElementById("p-role").innerText = roleInput.value;
-  };
-  summaryInput.oninput = () => {
-    document.getElementById("p-summary").innerText = summaryInput.value;
-  };
+  setTimeout(() => window.print(), 500);
+}
 </script>
 
 </body>
