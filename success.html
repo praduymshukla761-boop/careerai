@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Payment Successful</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -15,29 +18,46 @@
     .box {
       background: white;
       padding: 40px;
-      border-radius: 10px;
+      border-radius: 12px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
     }
     h1 {
       color: #16a34a;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #334155;
+      font-size: 16px;
     }
     a {
       display: inline-block;
-      margin-top: 20px;
-      padding: 12px 20px;
+      margin-top: 25px;
+      padding: 12px 24px;
       background: #2563eb;
       color: white;
       text-decoration: none;
       border-radius: 6px;
+      font-size: 16px;
     }
   </style>
 </head>
 
 <body>
-  <div class="box">
-    <h1>🎉 Payment Successful</h1>
-    <p>You are now a <strong>CareerAI Pro</strong> user.</p>
-    <a href="dashboard.html">Go to Dashboard</a>
-  </div>
+
+<!-- ✅ THIS LINE MAKES USER PRO -->
+<script>
+  localStorage.setItem("careerai_pro", "true");
+</script>
+
+<div class="box">
+  <h1>🎉 Payment Successful</h1>
+  <p>You are now a <strong>CareerAI Pro</strong> member.</p>
+  <p>Enjoy premium templates & unlimited downloads.</p>
+
+  <a href="dashboard.html">Go to Dashboard</a>
+</div>
+
 </body>
 </html>
