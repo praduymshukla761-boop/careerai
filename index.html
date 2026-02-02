@@ -1,39 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>CareerAI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      background: #f5f7fb;
+      background: linear-gradient(135deg, #2563eb, #1e3a8a);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       text-align: center;
-      padding-top: 80px;
+    }
+    .box {
+      background: rgba(255,255,255,0.1);
+      padding: 40px;
+      border-radius: 12px;
+      max-width: 400px;
     }
     h1 {
-      font-size: 32px;
+      margin-bottom: 10px;
     }
     p {
-      color: #555;
+      opacity: 0.9;
     }
     button {
       margin-top: 20px;
-      padding: 14px 28px;
+      padding: 14px 30px;
       font-size: 16px;
-      background: #2563eb;
-      color: white;
+      background: white;
+      color: #2563eb;
       border: none;
       border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #e5e7eb;
     }
   </style>
 </head>
 <body>
 
-  <h1>CareerAI</h1>
-  <p>AI-powered resume, cover letter & portfolio builder</p>
-
-  <a href="signup.html">
-    <button>Get Started Free</button>
-  </a>
+  <div class="box">
+    <h1>CareerAI</h1>
+    <p>AI-powered resume, cover letter & portfolio builder</p>
+    <a href="signup.html">
+      <button>Get Started Free</button>
+    </a>
+  </div>
 
 </body>
 </html>
