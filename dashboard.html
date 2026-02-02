@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard – CareerAI</title>
+  <title>CareerAI Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -11,15 +11,18 @@
       font-family: Arial, sans-serif;
       background: #f8fafc;
     }
+
     header {
       background: #2563eb;
       color: white;
       padding: 15px;
       text-align: center;
     }
+
     .container {
       padding: 20px;
     }
+
     .card {
       background: white;
       padding: 20px;
@@ -27,6 +30,7 @@
       margin-bottom: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     }
+
     button {
       padding: 10px 15px;
       background: #2563eb;
@@ -34,6 +38,16 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+
+    .pro {
+      background: #16a34a;
+    }
+
+    a {
+      text-decoration: none;
     }
   </style>
 </head>
@@ -45,6 +59,7 @@
 </header>
 
 <div class="container">
+
   <div class="card">
     <h2>Welcome 👋</h2>
     <p>This is your CareerAI dashboard.</p>
@@ -52,13 +67,30 @@
 
   <div class="card">
     <h3>Quick Actions</h3>
+
     <a href="resume-builder.html">
-  <a href="resume-builder.html">
-  <button>Create Resume</button>
-  </a>
-    <button>Create Cover Letter</button>
-    <button>Build Portfolio</button>
+      <button>Create Resume</button>
+    </a>
+
+    <a href="cover-letter.html">
+      <button>Create Cover Letter</button>
+    </a>
+
+    <a href="portfolio.html">
+      <button>Build Portfolio</button>
+    </a>
   </div>
+
+  <div class="card">
+    <h3>Upgrade to Pro 🚀</h3>
+    <p>Unlock premium AI resume templates & PDF download.</p>
+
+    <!-- THIS IS THE IMPORTANT LINK -->
+    <a href="payment.html">
+      <button class="pro">Upgrade to Pro (£2.99)</button>
+    </a>
+  </div>
+
 </div>
 
 </body>
