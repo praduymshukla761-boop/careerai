@@ -3,44 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <title>CareerAI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #2563eb, #1e3a8a);
-      color: white;
+      background: #f4f6fb;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      text-align: center;
     }
     .box {
-      background: rgba(255,255,255,0.1);
-      padding: 40px;
-      border-radius: 12px;
-      max-width: 400px;
-    }
-    h1 {
-      margin-bottom: 10px;
-    }
-    p {
-      opacity: 0.9;
-    }
-    button {
-      margin-top: 20px;
-      padding: 14px 30px;
-      font-size: 16px;
       background: white;
-      color: #2563eb;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
-    button:hover {
-      background: #e5e7eb;
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 16px;
     }
   </style>
 </head>
@@ -48,10 +35,10 @@
 
   <div class="box">
     <h1>CareerAI</h1>
-    <p>AI-powered resume, cover letter & portfolio builder</p>
-    <a href="signup.html">
-      <button>Get Started Free</button>
-    </a>
+    <p>Build your resume with AI</p>
+
+    <!-- THIS IS THE KEY FIX -->
+    <a href="/signup.html">Get Started Free</a>
   </div>
 
 </body>
