@@ -42,7 +42,20 @@
     h3 {
       margin-top: 0;
     }
-  </style>
+  </style>@media print {
+  body * {
+    visibility: hidden;
+  }
+  .preview, .preview * {
+    visibility: visible;
+  }
+  .preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
 </head>
 
 <body>
@@ -56,16 +69,16 @@
     <h3>Your Details</h3>
     <input id="name" placeholder="Full Name">
     <input id="role" placeholder="Job Title">
-    <textarea id="summary" placeholder="Professional Summary"></textarea>
-  </div>
-
+<button onclick="downloadPDF()">Download PDF</button>
   <div class="preview">
     <h3 id="p-name">Your Name</h3>
     <p id="p-role">Your Job Title</p>
     <p id="p-summary">Your summary will appear here...</p>
   </div>
 </div>
-<script>
+<script>function downloadPDF() {
+  window.print();
+}
   const nameInput = document.getElementById("name");
   const roleInput = document.getElementById("role");
   const summaryInput = document.getElementById("summary");
