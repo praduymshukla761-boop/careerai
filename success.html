@@ -2,62 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Payment Successful</title>
+  <title>Payment Successful – CareerAI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f8fafc;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
       height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
       text-align: center;
     }
+
     .box {
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      max-width: 400px;
-      width: 100%;
+      background: rgba(255,255,255,0.15);
+      padding: 50px 40px;
+      border-radius: 14px;
+      max-width: 420px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
     }
+
     h1 {
-      color: #16a34a;
-      margin-bottom: 10px;
+      margin-top: 0;
+      font-size: 32px;
     }
+
     p {
-      color: #334155;
-      font-size: 16px;
+      font-size: 17px;
+      opacity: 0.95;
+      margin-bottom: 30px;
+      line-height: 1.5;
     }
-    a {
+
+    .btn {
       display: inline-block;
-      margin-top: 25px;
-      padding: 12px 24px;
-      background: #2563eb;
-      color: white;
+      padding: 14px 30px;
+      background: white;
+      color: #166534;
       text-decoration: none;
-      border-radius: 6px;
-      font-size: 16px;
+      font-size: 17px;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+
+    .btn:hover {
+      background: #dcfce7;
+    }
+
+    .small {
+      margin-top: 20px;
+      font-size: 14px;
+      opacity: 0.85;
     }
   </style>
 </head>
 
 <body>
 
-<!-- ✅ THIS LINE MAKES USER PRO -->
-<script>
-  localStorage.setItem("careerai_pro", "true");
-</script>
+  <div class="box">
+    <h1>🎉 Payment Successful!</h1>
+    <p>
+      Welcome to <strong>CareerAI Pro</strong> 🚀<br>
+      Your premium features are now unlocked.
+    </p>
 
-<div class="box">
-  <h1>🎉 Payment Successful</h1>
-  <p>You are now a <strong>CareerAI Pro</strong> member.</p>
-  <p>Enjoy premium templates & unlimited downloads.</p>
+    <a href="dashboard.html" class="btn">Go to Dashboard</a>
 
-  <a href="dashboard.html">Go to Dashboard</a>
-</div>
+    <div class="small">
+      Redirecting automatically in 5 seconds…
+    </div>
+  </div>
+
+  <!-- 🔐 PRO UNLOCK LOGIC -->
+  <script>
+    // Mark user as PRO
+    localStorage.setItem("isPro", "true");
+
+    // Auto redirect after 5 seconds
+    setTimeout(() => {
+      window.location.href = "dashboard.html";
+    }, 5000);
+  </script>
 
 </body>
 </html>
