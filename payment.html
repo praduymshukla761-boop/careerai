@@ -2,58 +2,169 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Upgrade to Pro</title>
+  <title>Pricing – CareerAI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f6fb;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
     }
-    .box {
+
+    header {
       background: white;
-      padding: 30px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      max-width: 400px;
-      width: 100%;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     }
-    h1 {
+
+    header h2 {
+      margin: 0;
       color: #2563eb;
     }
-    p {
-      color: #555;
+
+    header a {
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: bold;
     }
-    button {
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    p.sub {
+      color: #475569;
+      margin-bottom: 40px;
+      font-size: 18px;
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .plan {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .plan h3 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .price {
+      font-size: 32px;
+      margin: 20px 0;
+      color: #2563eb;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      color: #475569;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
       background: #2563eb;
       color: white;
-      border: none;
-      padding: 12px 20px;
-      font-size: 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 20px;
-      width: 100%;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
     }
-    button:hover {
-      background: #1e4ed8;
+
+    .popular {
+      border: 2px solid #2563eb;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #64748b;
+      font-size: 14px;
     }
   </style>
 </head>
+
 <body>
 
-  <div class="box">
-    <h1>CareerAI Pro</h1>
-    <p>Unlock AI Resume Builder, Cover Letters & Portfolio</p>
-    <p><strong>Price: £2.99</strong></p>
+<header>
+  <h2>CareerAI</h2>
+  <a href="dashboard.html">Dashboard</a>
+</header>
 
-    <a href="https://buy.stripe.com/test_bJe7sEbdA6wL9C1bf600000" target="_blank">
-      <button>Pay & Upgrade</button>
-    </a>
+<div class="container">
+  <h1>Simple, Transparent Pricing</h1>
+  <p class="sub">Choose the plan that fits your career goals.</p>
+
+  <div class="plans">
+
+    <div class="plan">
+      <h3>Free</h3>
+      <p class="price">₹0</p>
+      <ul>
+        <li>✔ 1 Resume</li>
+        <li>✔ Basic Template</li>
+        <li>✔ Limited AI help</li>
+        <li>✖ PDF Download</li>
+      </ul>
+      <a href="dashboard.html" class="btn">Get Started</a>
+    </div>
+
+    <div class="plan popular">
+      <h3>Pro 🚀</h3>
+      <p class="price">₹390</p>
+      <ul>
+        <li>✔ Unlimited Resumes</li>
+        <li>✔ Pro Templates</li>
+        <li>✔ AI Rewrite</li>
+        <li>✔ PDF Download</li>
+      </ul>
+      <a href="payment.html" class="btn">Upgrade to Pro</a>
+    </div>
+
+    <div class="plan">
+      <h3>Executive</h3>
+      <p class="price">₹790</p>
+      <ul>
+        <li>✔ Everything in Pro</li>
+        <li>✔ Cover Letters</li>
+        <li>✔ Portfolio Builder</li>
+        <li>✔ Priority Support</li>
+      </ul>
+      <a href="payment.html" class="btn">Go Executive</a>
+    </div>
+
   </div>
+</div>
+
+<footer>
+  © 2026 CareerAI. All rights reserved.
+</footer>
 
 </body>
 </html>
