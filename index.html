@@ -2,63 +2,157 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>CareerAI – Build Your Resume in Minutes</title>
+  <title>CareerAI – AI Resume Builder</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      height: 100vh;
-      background: linear-gradient(135deg, #2563eb, #1e40af);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #2563eb, #1e3a8a);
       color: white;
-      text-align: center;
+    }
+
+    header {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h2 {
+      margin: 0;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
     }
 
     .hero {
-      max-width: 600px;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       padding: 20px;
     }
 
-    h1 {
-      font-size: 42px;
+    .hero-box {
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: 44px;
       margin-bottom: 15px;
     }
 
-    p {
+    .hero p {
       font-size: 18px;
       opacity: 0.9;
       margin-bottom: 30px;
+      line-height: 1.6;
     }
 
-    a {
-      display: inline-block;
-      padding: 14px 28px;
+    .cta {
       background: white;
-      color: #1e40af;
-      text-decoration: none;
+      color: #1e3a8a;
+      padding: 15px 32px;
       font-size: 18px;
-      font-weight: bold;
       border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
     }
 
-    a:hover {
+    .cta:hover {
       background: #e5e7eb;
+    }
+
+    .features {
+      background: #f8fafc;
+      color: #111;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .features h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    .feature-grid {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .feature {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      background: #0f172a;
+      padding: 30px;
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.8;
     }
   </style>
 </head>
 
 <body>
-  <div class="hero">
-    <h1>Build a Job-Ready Resume in Minutes</h1>
-    <p>
-      CareerAI helps you create professional resumes, cover letters,  
-      and portfolios — powered by AI.
-    </p>
-    <a href="signup.html">Get Started Free</a>
+
+<header>
+  <h2>CareerAI</h2>
+  <div>
+    <a href="login.html">Login</a>
+    <a href="signup.html">Sign up</a>
   </div>
+</header>
+
+<section class="hero">
+  <div class="hero-box">
+    <h1>Build Job-Ready Resumes with AI</h1>
+    <p>
+      Create professional resumes, cover letters, and portfolios  
+      in minutes. Optimized for recruiters and ATS systems.
+    </p>
+    <a href="signup.html" class="cta">Get Started Free</a>
+  </div>
+</section>
+
+<section class="features">
+  <h2>Why CareerAI?</h2>
+
+  <div class="feature-grid">
+    <div class="feature">
+      <h3>AI Resume Builder</h3>
+      <p>Create resumes tailored to job roles with smart AI suggestions.</p>
+    </div>
+
+    <div class="feature">
+      <h3>ATS Optimized</h3>
+      <p>Pass applicant tracking systems used by top companies.</p>
+    </div>
+
+    <div class="feature">
+      <h3>Pro Templates</h3>
+      <p>Modern, executive templates used by real professionals.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 CareerAI. All rights reserved.
+</footer>
+
 </body>
 </html>
