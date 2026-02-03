@@ -1,193 +1,208 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>CareerAI – Resume Builder</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+:root{
+  --blue:#2563eb;
+  --dark:#1e293b;
+  --gray:#64748b;
+  --bg:#f8fafc;
+  --orange:#f97316;
+}
+
 body{
   margin:0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg,#eef2ff,#f8fafc);
+  font-family:Arial, sans-serif;
+  background:var(--bg);
 }
-h1{
-  text-align:center;
+
+header{
+  background:var(--dark);
+  color:white;
   padding:20px;
+  text-align:center;
 }
+
 .container{
-  display:flex;
-  flex-wrap:wrap;
+  max-width:1100px;
+  margin:30px auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
   gap:20px;
   padding:20px;
-  max-width:1200px;
-  margin:auto;
 }
-.box{
-  background:#fff;
+
+.card{
+  background:white;
   padding:20px;
   border-radius:10px;
   box-shadow:0 10px 25px rgba(0,0,0,.08);
-  flex:1;
-  min-width:300px;
 }
+
 input, textarea, select{
   width:100%;
-  padding:10px;
-  margin:8px 0;
-  border:1px solid #ccc;
-  border-radius:6px;
-}
-button{
-  width:100%;
   padding:12px;
-  margin-top:10px;
+  margin-bottom:12px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+
+button{
+  padding:12px;
   border:none;
   border-radius:6px;
   cursor:pointer;
-  font-size:16px;
+  font-size:15px;
 }
-.ai{
-  background:#7c3aed;
-  color:white;
+
+.primary{background:var(--blue);color:white;}
+.orange{background:var(--orange);color:white;}
+.gray{background:#e5e7eb;}
+
+.resume{
+  border-left:6px solid var(--blue);
 }
-.generate{
-  background:#2563eb;
-  color:white;
+
+.resume.modern{border-color:#0d9488;}
+.resume.executive{border-color:#7c3aed;}
+
+h2,h3{margin-top:0}
+
+.badge{
+  display:inline-block;
+  background:#e5e7eb;
+  padding:4px 8px;
+  font-size:12px;
+  border-radius:6px;
+  margin-bottom:10px;
 }
-.pro{
-  background:#f97316;
-  color:white;
+
+.lock{
+  color:red;
+  font-size:14px;
+  margin-top:10px;
 }
-.download{
-  background:#16a34a;
-  color:white;
-}
-.resume h2{
-  margin-bottom:5px;
-}
-.resume h3{
-  margin-top:15px;
-}
-.resume ul{
-  padding-left:20px;
-}
-.hidden{
-  display:none;
+
+@media(max-width:900px){
+  .container{grid-template-columns:1fr;}
 }
 </style>
 </head>
 
 <body>
 
-<h1>CareerAI – Resume Builder</h1>
+<header>
+  <h1>CareerAI – Resume Builder</h1>
+  <p>Free & AI-Powered Resume Generator</p>
+</header>
 
 <div class="container">
 
-<!-- LEFT: FORM -->
-<div class="box">
-<h2>Fill Your Details</h2>
+<!-- FORM -->
+<div class="card">
+  <h2>Fill Your Details</h2>
 
-<select id="template">
-  <option value="classic">Classic (Free)</option>
-  <option value="modern">Modern (Free)</option>
-  <option value="executive">Executive (Pro)</option>
-</select>
+  <select id="template">
+    <option value="classic">Classic (Free)</option>
+    <option value="modern">Modern (Pro)</option>
+    <option value="executive">Executive (Pro)</option>
+  </select>
 
-<input id="name" placeholder="Full Name">
-<input id="role" placeholder="Job Title">
-<input id="contact" placeholder="Email | Phone | Location">
+  <input id="name" placeholder="Full Name">
+  <input id="role" placeholder="Job Title">
+  <input id="contact" placeholder="Email | Phone | Location">
 
-<textarea id="summary" placeholder="Professional Summary"></textarea>
-<textarea id="skills" placeholder="Skills (comma separated)"></textarea>
-<textarea id="experience" placeholder="Experience (one point per line)"></textarea>
-<textarea id="education" placeholder="Education"></textarea>
+  <textarea id="summary" placeholder="Professional Summary"></textarea>
 
-<button class="ai" onclick="aiGenerate()">✨ Generate with AI</button>
-<button class="generate" onclick="generateResume()">Generate Resume</button>
-<button class="pro" onclick="upgradePro()">Upgrade to Pro</button>
+  <button class="gray" onclick="aiImprove()">✨ Improve with AI</button>
 
+  <textarea id="skills" placeholder="Skills (comma separated)"></textarea>
+  <textarea id="experience" placeholder="Experience (one point per line)"></textarea>
+  <textarea id="education" placeholder="Education"></textarea>
+
+  <button class="primary" onclick="generate()">Generate Resume</button>
+  <button class="orange" onclick="upgrade()">Upgrade to Pro</button>
+
+  <div class="lock" id="lockMsg"></div>
 </div>
 
-<!-- RIGHT: PREVIEW -->
-<div class="box resume" id="resumeBox">
-<h2 id="rname">Your Name</h2>
-<p id="rcontact"></p>
+<!-- PREVIEW -->
+<div class="card resume classic" id="resume">
+  <span class="badge" id="badge">FREE</span>
+  <h2 id="rname">Your Name</h2>
+  <p id="rcontact"></p>
 
-<h3>Summary</h3>
-<p id="rsummary"></p>
+  <h3>Summary</h3>
+  <p id="rsummary"></p>
 
-<h3>Skills</h3>
-<ul id="rskills"></ul>
+  <h3>Skills</h3>
+  <ul id="rskills"></ul>
 
-<h3>Experience</h3>
-<ul id="rexperience"></ul>
+  <h3>Experience</h3>
+  <ul id="rexperience"></ul>
 
-<h3>Education</h3>
-<p id="reducation"></p>
+  <h3>Education</h3>
+  <p id="reducation"></p>
 
-<button class="download" onclick="window.print()">Download Resume</button>
+  <button class="primary" onclick="window.print()">Download PDF</button>
 </div>
 
 </div>
 
 <script>
-function aiGenerate(){
-  const role = document.getElementById("role").value || "Professional";
+const isPro = localStorage.getItem("careerai_pro") === "true";
 
-  document.getElementById("summary").value =
-    role + " with strong problem-solving abilities, proven performance, and a results-driven mindset. Experienced in teamwork, communication, and delivering measurable impact.";
-
-  document.getElementById("skills").value =
-    "Communication, Leadership, Problem Solving, Teamwork, Time Management, Adaptability";
-
-  document.getElementById("experience").value =
-    "Worked as a " + role + " handling key responsibilities\n" +
-    "Collaborated with cross-functional teams\n" +
-    "Improved efficiency and productivity\n" +
-    "Adapted quickly to new tools and challenges";
+function upgrade(){
+  window.location.href="payment.html";
 }
 
-function generateResume(){
-  document.getElementById("rname").innerText =
-    document.getElementById("name").value || "Your Name";
+function aiImprove(){
+  let s=document.getElementById("summary");
+  if(!s.value) return;
 
-  document.getElementById("rcontact").innerText =
-    document.getElementById("contact").value;
-
-  document.getElementById("rsummary").innerText =
-    document.getElementById("summary").value;
-
-  // Skills
-  const skillsList = document.getElementById("skills").value.split(",");
-  const rskills = document.getElementById("rskills");
-  rskills.innerHTML="";
-  skillsList.forEach(skill=>{
-    if(skill.trim()){
-      const li=document.createElement("li");
-      li.innerText=skill.trim();
-      rskills.appendChild(li);
-    }
-  });
-
-  // Experience
-  const expList = document.getElementById("experience").value.split("\n");
-  const rexp = document.getElementById("rexperience");
-  rexp.innerHTML="";
-  expList.forEach(exp=>{
-    if(exp.trim()){
-      const li=document.createElement("li");
-      li.innerText=exp.trim();
-      rexp.appendChild(li);
-    }
-  });
-
-  document.getElementById("reducation").innerText =
-    document.getElementById("education").value;
+  s.value =
+  "Results-driven professional with strong analytical skills, proven performance, and a commitment to delivering measurable impact. " +
+  s.value;
 }
 
-function upgradePro(){
-  window.location.href = "payment.html";
+function generate(){
+  const template=document.getElementById("template").value;
+
+  if((template==="modern"||template==="executive") && !isPro){
+    document.getElementById("lockMsg").innerText="🔒 Pro template locked. Please upgrade.";
+    return;
+  }
+
+  document.getElementById("lockMsg").innerText="";
+
+  const resume=document.getElementById("resume");
+  resume.className="card resume "+template;
+
+  document.getElementById("badge").innerText =
+    template==="classic" ? "FREE" : "PRO";
+
+  document.getElementById("rname").innerText=document.getElementById("name").value;
+  document.getElementById("rcontact").innerText=document.getElementById("contact").value;
+  document.getElementById("rsummary").innerText=document.getElementById("summary").value;
+  document.getElementById("reducation").innerText=document.getElementById("education").value;
+
+  document.getElementById("rskills").innerHTML="";
+  document.getElementById("skills").value.split(",").forEach(s=>{
+    let li=document.createElement("li");
+    li.innerText=s.trim();
+    document.getElementById("rskills").appendChild(li);
+  });
+
+  document.getElementById("rexperience").innerHTML="";
+  document.getElementById("experience").value.split("\n").forEach(e=>{
+    let li=document.createElement("li");
+    li.innerText=e.trim();
+    document.getElementById("rexperience").appendChild(li);
+  });
 }
 </script>
 
