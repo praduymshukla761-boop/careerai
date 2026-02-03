@@ -1,100 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Login – CareerAI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: linear-gradient(135deg, #2563eb, #1e3a8a);
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .login-box {
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      width: 100%;
-      max-width: 360px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-      text-align: center;
-    }
-
-    h1 {
-      margin-bottom: 10px;
-      color: #1e3a8a;
-    }
-
-    p {
-      color: #475569;
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border-radius: 6px;
-      border: 1px solid #cbd5e1;
-      font-size: 15px;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      background: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #1e40af;
-    }
-
-    .bottom-text {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #475569;
-    }
-
-    .bottom-text a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  </style>
+<title>Login – CareerAI</title>
+<style>
+body{
+  font-family:Arial;
+  background:#f1f5f9;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+.box{
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  width:320px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+input,button{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+}
+button{
+  background:#16a34a;
+  color:white;
+  border:none;
+  border-radius:6px;
+}
+a{font-size:14px;}
+</style>
 </head>
 
 <body>
 
-  <div class="login-box">
-    <h1>Welcome back</h1>
-    <p>Login to your CareerAI dashboard</p>
+<div class="box">
+  <h2>Login to CareerAI</h2>
 
-    <input type="email" placeholder="Email Address">
-    <input type="password" placeholder="Password">
+  <input id="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
 
-    <!-- MVP login: direct dashboard access -->
-    <a href="dashboard.html">
-      <button>Login</button>
-    </a>
+  <button onclick="login()">Login</button>
 
-    <div class="bottom-text">
-      Don’t have an account?
-      <a href="signup.html">Sign up</a>
-    </div>
-  </div>
+  <p>New user? <a href="signup.html">Sign up</a></p>
+</div>
+
+<script>
+function login(){
+  const savedEmail = localStorage.getItem("careerai_email");
+  const savedPassword = localStorage.getItem("careerai_password");
+
+  if(
+    email.value === savedEmail &&
+    password.value === savedPassword
+  ){
+    localStorage.setItem("careerai_loggedin","true");
+    window.location.href="resume.html";
+  }else{
+    alert("Wrong email or password");
+  }
+}
+</script>
 
 </body>
 </html>
