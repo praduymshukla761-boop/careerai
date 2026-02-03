@@ -2,260 +2,252 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pradumn Shukla | CareerAI Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pradumn Shukla | Career Profile</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Google Verification (keep if you want SEO) -->
+  <meta name="google-site-verification" content="gPEVwiDqaVXIgG17HEBd6WmwFIqmO2KbhqXEJWOWoh4" />
 
   <style>
+    :root {
+      --primary: #2563eb;
+      --dark: #0f172a;
+      --gray: #475569;
+      --light: #f8fafc;
+      --card: #ffffff;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Inter', sans-serif;
+      font-family: "Inter", Arial, sans-serif;
     }
 
     body {
-      background: #f5f7fb;
-      color: #111827;
+      background: var(--light);
+      color: var(--dark);
       line-height: 1.6;
+      padding: 24px;
     }
 
     .container {
       max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
+      margin: auto;
     }
 
     .card {
-      background: #ffffff;
-      border-radius: 16px;
+      background: var(--card);
+      border-radius: 14px;
       padding: 28px;
-      margin-bottom: 22px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      margin-bottom: 24px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
     }
 
     h1 {
-      font-size: 34px;
+      font-size: 32px;
       font-weight: 800;
     }
 
     h2 {
       font-size: 22px;
       margin-bottom: 12px;
-      font-weight: 700;
     }
 
     h3 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 6px;
+      font-size: 18px;
+      margin-bottom: 8px;
     }
 
     p {
-      font-size: 15px;
-      color: #374151;
+      color: var(--gray);
+      margin-bottom: 10px;
     }
 
     .tag {
       display: inline-block;
       background: #e0e7ff;
-      color: #3730a3;
+      color: var(--primary);
       padding: 6px 12px;
       border-radius: 999px;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
-      margin-right: 8px;
-      margin-top: 10px;
+      margin-right: 6px;
+      margin-top: 6px;
     }
 
-    .header-flex {
+    .header {
       display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 10px;
     }
 
-    .muted {
-      color: #6b7280;
-      font-size: 14px;
+    .sub {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .section-title {
+      border-left: 4px solid var(--primary);
+      padding-left: 12px;
+      margin-bottom: 16px;
     }
 
     ul {
       padding-left: 18px;
-      margin-top: 8px;
     }
 
     li {
-      margin-bottom: 8px;
-      font-size: 15px;
+      margin-bottom: 10px;
     }
 
     .skill-bar {
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .skill-bar span {
-      font-size: 14px;
       font-weight: 600;
     }
 
     .bar {
-      height: 8px;
       background: #e5e7eb;
       border-radius: 999px;
-      margin-top: 6px;
       overflow: hidden;
+      height: 10px;
+      margin-top: 6px;
     }
 
-    .bar-fill {
+    .fill {
+      background: var(--primary);
       height: 100%;
-      background: linear-gradient(90deg, #2563eb, #4f46e5);
-      border-radius: 999px;
     }
 
     .cta {
-      background: linear-gradient(135deg, #2563eb, #4f46e5);
-      color: white;
-      padding: 18px;
-      border-radius: 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
+      text-align: center;
     }
 
-    .cta button {
-      background: white;
-      color: #2563eb;
-      border: none;
-      padding: 10px 18px;
+    .button {
+      background: var(--primary);
+      color: white;
+      padding: 14px 22px;
       border-radius: 10px;
       font-weight: 700;
-      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
     }
 
-    .timeline-item {
-      margin-bottom: 12px;
-    }
-
-    .timeline-item strong {
-      color: #111827;
-    }
-
-    footer {
+    .footer {
       text-align: center;
-      font-size: 13px;
-      color: #6b7280;
-      margin: 40px 0 20px;
+      color: var(--gray);
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 26px;
+      }
     }
   </style>
 </head>
 
 <body>
+  <div class="container">
 
-<div class="container">
+    <!-- HEADER -->
+    <div class="card header">
+      <h1>Pradumn Shukla</h1>
+      <p class="sub">Founder-Mindset Operator | CareerAI Builder</p>
+      <p>📧 praduymsukla761@gmail.com · 🇮🇳 India</p>
 
-  <!-- HEADER -->
-  <div class="card">
-    <div class="header-flex">
       <div>
-        <h1>Pradumn Shukla</h1>
-        <p class="muted">Founder-Mindset Operator | CareerAI Builder</p>
-        <p class="muted">📧 praduymsukla761@gmail.com · 🇮🇳 India</p>
+        <span class="tag">ATS Optimized</span>
+        <span class="tag">Recruiter Friendly</span>
+        <span class="tag">CareerAI Pro</span>
       </div>
     </div>
 
-    <div>
-      <span class="tag">ATS Optimized</span>
-      <span class="tag">Recruiter Friendly</span>
-      <span class="tag">CareerAI Pro</span>
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="card">
+      <div class="section-title">
+        <h2>Executive Summary</h2>
+      </div>
+      <p>
+        Operations-driven professional with a builder’s mindset.
+        Proven ability to lead teams, optimize systems, and convert execution into measurable results.
+        Currently building <strong>CareerAI</strong> — a next-gen resume intelligence platform.
+      </p>
     </div>
+
+    <!-- LIFE JOURNEY -->
+    <div class="card">
+      <div class="section-title">
+        <h2>Life Journey</h2>
+      </div>
+      <ul>
+        <li><strong>Early Years:</strong> Leadership instincts, discipline, curiosity</li>
+        <li><strong>Academics:</strong> Undergraduate with continuous growth mindset</li>
+        <li><strong>Now:</strong> Building a career product for millions</li>
+      </ul>
+    </div>
+
+    <!-- CORE SKILLS -->
+    <div class="card">
+      <div class="section-title">
+        <h2>Core Skills</h2>
+      </div>
+
+      <div class="skill-bar">
+        <span>Leadership</span>
+        <div class="bar"><div class="fill" style="width:90%"></div></div>
+      </div>
+
+      <div class="skill-bar">
+        <span>Operations & Process</span>
+        <div class="bar"><div class="fill" style="width:88%"></div></div>
+      </div>
+
+      <div class="skill-bar">
+        <span>Strategic Thinking</span>
+        <div class="bar"><div class="fill" style="width:85%"></div></div>
+      </div>
+    </div>
+
+    <!-- IMPACT EXPERIENCE -->
+    <div class="card">
+      <div class="section-title">
+        <h2>Impact Experience (XYZ Format)</h2>
+      </div>
+      <ul>
+        <li>Improved workflow efficiency by <strong>25%</strong> by redesigning execution systems</li>
+        <li>Led cross-functional teams to deliver consistent outcomes</li>
+        <li>Tracked KPIs and implemented performance dashboards</li>
+      </ul>
+    </div>
+
+    <!-- FOUNDER VISION -->
+    <div class="card">
+      <div class="section-title">
+        <h2>Founder & CEO Vision</h2>
+      </div>
+      <p>
+        Building a full-stack Career Operating System that replaces outdated resumes
+        with living, intelligent career profiles.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="card cta">
+      <h2>CareerAI Pro</h2>
+      <p>Unlock AI rewriting, ATS matching, analytics, and smart exports.</p>
+      <a href="payment.html" class="button">Upgrade to Pro</a>
+    </div>
+
+    <div class="footer">
+      © 2026 CareerAI · Built with vision, not templates
+    </div>
+
   </div>
-
-  <!-- EXECUTIVE SUMMARY -->
-  <div class="card">
-    <h2>Executive Summary</h2>
-    <p>
-      Operations-driven professional with a builder’s mindset. Proven ability to
-      lead teams, optimize systems, and convert execution into measurable results.
-      Currently building <strong>CareerAI</strong> — a next-generation resume and career
-      intelligence platform designed for modern hiring.
-    </p>
-  </div>
-
-  <!-- LIFE JOURNEY -->
-  <div class="card">
-    <h2>Life Journey</h2>
-
-    <div class="timeline-item">
-      <strong>Early Years:</strong> Leadership instincts, discipline, curiosity
-    </div>
-
-    <div class="timeline-item">
-      <strong>Academics:</strong> Undergraduate (UG) with continuous growth mindset
-    </div>
-
-    <div class="timeline-item">
-      <strong>Now:</strong> Building a career product for millions
-    </div>
-  </div>
-
-  <!-- CORE SKILLS -->
-  <div class="card">
-    <h2>Core Skills</h2>
-
-    <div class="skill-bar">
-      <span>Leadership</span>
-      <div class="bar"><div class="bar-fill" style="width: 90%"></div></div>
-    </div>
-
-    <div class="skill-bar">
-      <span>Operations & Process Optimization</span>
-      <div class="bar"><div class="bar-fill" style="width: 88%"></div></div>
-    </div>
-
-    <div class="skill-bar">
-      <span>Strategic Thinking</span>
-      <div class="bar"><div class="bar-fill" style="width: 85%"></div></div>
-    </div>
-  </div>
-
-  <!-- IMPACT EXPERIENCE -->
-  <div class="card">
-    <h2>Impact Experience (XYZ Format)</h2>
-    <ul>
-      <li>Improved workflow efficiency by <strong>25%</strong> by redesigning execution systems</li>
-      <li>Led cross-functional teams to deliver consistent operational outcomes</li>
-      <li>Tracked KPIs and implemented performance dashboards for leadership</li>
-    </ul>
-  </div>
-
-  <!-- FOUNDER VISION -->
-  <div class="card">
-    <h2>Founder & CEO Vision</h2>
-    <p>
-      Building a full-stack <strong>Career Operating System</strong> that replaces outdated
-      resumes with living, intelligent career profiles powered by AI.
-    </p>
-  </div>
-
-  <!-- PRO CTA -->
-  <div class="card cta">
-    <div>
-      <h3>CareerAI Pro</h3>
-      <p>Unlock AI rewriting, ATS matching, analytics & smart exports</p>
-    </div>
-    <button>Upgrade to Pro</button>
-  </div>
-
-  <footer>
-    © 2026 CareerAI · Living Resume Platform
-  </footer>
-
-</div>
-
 </body>
 </html>
