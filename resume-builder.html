@@ -7,134 +7,186 @@
 
 <style>
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
   background: #f1f5f9;
-  margin: 0;
-  padding: 20px;
+  color: #0f172a;
 }
+
 h1 {
   text-align: center;
-  color: #1e293b;
+  padding: 20px;
 }
+
 .container {
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
 }
+
 .box {
   background: white;
   padding: 20px;
   border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   flex: 1;
   min-width: 300px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
+
 input, textarea, select {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
 }
+
 button {
   padding: 12px;
   width: 100%;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.generate {
   background: #2563eb;
   color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
 }
-button.pro {
+
+.download {
+  background: #16a34a;
+  color: white;
+}
+
+.pro {
   background: #f97316;
+  color: white;
 }
+
 .resume {
   border-left: 5px solid #2563eb;
 }
-.executive {
+
+.resume.modern {
+  border-left-color: #16a34a;
+}
+
+.resume.executive {
   border-left-color: #f97316;
 }
-.download {
-  margin-top: 20px;
+
+@media print {
+  button, select {
+    display: none;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<h1>CareerAI – Smart Resume Builder</h1>
+<h1>CareerAI – Resume Builder</h1>
 
 <div class="container">
 
-<!-- FORM -->
-<div class="box">
-  <h2>Fill Your Details</h2>
+  <!-- FORM -->
+  <div class="box">
+    <h2>Fill Your Details</h2>
 
-  <select id="template">
-    <option value="classic">Classic (Free)</option>
-    <option value="modern">Modern (Free)</option>
-    <option value="executive">Executive (Pro)</option>
-  </select>
+    <select id="template">
+      <option value="classic">Classic (Free)</option>
+      <option value="modern">Modern (Free)</option>
+      <option value="executive">Executive (Pro)</option>
+    </select>
 
-  <input id="name" placeholder="Full Name">
-  <input id="contact" placeholder="Email | Phone | Location">
-  <input id="role" placeholder="Job Title">
+    <input id="name" placeholder="Full Name">
+    <input id="role" placeholder="Job Title">
+    <input id="contact" placeholder="Email | Phone | Location">
 
-  <textarea id="summary" placeholder="Professional Summary"></textarea>
-  <textarea id="skills" placeholder="Skills (comma separated)"></textarea>
-  <textarea id="experience" placeholder="Experience (one point per line)"></textarea>
-  <textarea id="education" placeholder="Education"></textarea>
+    <textarea id="summary" placeholder="Professional Summary"></textarea>
+    <textarea id="skills" placeholder="Skills (comma separated)"></textarea>
+    <textarea id="experience" placeholder="Experience (one point per line)"></textarea>
+    <textarea id="education" placeholder="Education"></textarea>
 
-  <button onclick="generateResume()">Generate Resume</button>
-</div>
+    <button class="generate" onclick="generateResume()">Generate Resume</button>
+    <button class="pro" onclick="upgrade()">Upgrade to Pro</button>
+  </div>
 
-<!-- PREVIEW -->
-<div class="box resume classic" id="resume">
-  <h2 id="rname">Your Name</h2>
-  <p id="rcontact"></p>
-  <h3>Summary</h3>
-  <p id="rsummary"></p>
-  <h3>Skills</h3>
-  <ul id="rskills"></ul>
-  <h3>Experience</h3>
-  <ul id="rexperience"></ul>
-  <h3>Education</h3>
-  <p id="reducation"></p>
+  <!-- PREVIEW -->
+  <div class="box resume classic" id="resume">
+    <h2 id="rname">Your Name</h2>
+    <p id="rcontact"></p>
 
-  <button class="download" onclick="window.print()">Download PDF</button>
-</div>
+    <h3>Summary</h3>
+    <p id="rsummary"></p>
+
+    <h3>Skills</h3>
+    <ul id="rskills"></ul>
+
+    <h3>Experience</h3>
+    <ul id="rexperience"></ul>
+
+    <h3>Education</h3>
+    <p id="reducation"></p>
+
+    <button class="download" onclick="window.print()">Download PDF</button>
+  </div>
 
 </div>
 
 <script>
 function generateResume() {
   const template = document.getElementById("template").value;
-  const isPro = localStorage.getItem("careerai_pro");
 
-  if (template === "executive" && isPro !== "true") {
-    alert("🔒 Executive template is Pro only.");
+  if (template === "executive" && !localStorage.getItem("careerai_pro")) {
+    alert("This is a PRO template. Please upgrade.");
     window.location.href = "payment.html";
     return;
   }
 
   document.getElementById("resume").className = "box resume " + template;
 
-  rname.innerText = name.value;
-  rcontact.innerText = contact.value;
-  rsummary.innerText = summary.value;
-  reducation.innerText = education.value;
+  document.getElementById("rname").innerText =
+    document.getElementById("name").value;
 
-  rskills.innerHTML = "";
-  skills.value.split(",").forEach(s => {
-    let li = document.createElement("li");
-    li.innerText = s.trim();
-    rskills.appendChild(li);
+  document.getElementById("rcontact").innerText =
+    document.getElementById("contact").value;
+
+  document.getElementById("rsummary").innerText =
+    document.getElementById("summary").value;
+
+  // Skills
+  const skills = document.getElementById("skills").value.split(",");
+  document.getElementById("rskills").innerHTML = "";
+  skills.forEach(skill => {
+    if(skill.trim()){
+      const li = document.createElement("li");
+      li.innerText = skill.trim();
+      document.getElementById("rskills").appendChild(li);
+    }
   });
 
-  rexperience.innerHTML = "";
-  experience.value.split("\n").forEach(e => {
-    let li = document.createElement("li");
-    li.innerText = e;
-    rexperience.appendChild(li);
+  // Experience
+  const exp = document.getElementById("experience").value.split("\n");
+  document.getElementById("rexperience").innerHTML = "";
+  exp.forEach(e => {
+    if(e.trim()){
+      const li = document.createElement("li");
+      li.innerText = e.trim();
+      document.getElementById("rexperience").appendChild(li);
+    }
   });
+
+  document.getElementById("reducation").innerText =
+    document.getElementById("education").value;
+}
+
+function upgrade() {
+  window.location.href = "payment.html";
 }
 </script>
 
