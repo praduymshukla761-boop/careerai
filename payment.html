@@ -2,38 +2,66 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Upgrade to CareerAI Pro</title>
+<title>CareerAI Pro – Payment</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg,#2563eb,#1e293b);
+  background: linear-gradient(135deg, #2563eb, #0f172a);
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
 }
+
 .box {
   background: white;
+  color: #0f172a;
   padding: 30px;
   border-radius: 12px;
+  width: 100%;
+  max-width: 360px;
   text-align: center;
-  width: 90%;
-  max-width: 400px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
+
 h1 {
-  color: #1e293b;
+  margin-bottom: 10px;
 }
-a {
-  display: block;
-  margin-top: 20px;
+
+.price {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+ul {
+  text-align: left;
+  margin: 20px 0;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+button {
+  width: 100%;
   padding: 14px;
-  background: #f97316;
+  background: #2563eb;
   color: white;
-  text-decoration: none;
-  border-radius: 6px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.note {
+  font-size: 12px;
+  margin-top: 10px;
+  color: #475569;
 }
 </style>
 </head>
@@ -41,25 +69,32 @@ a {
 <body>
 
 <div class="box">
-  <h1>CareerAI Pro 🚀</h1>
-  <p>Unlock Executive templates, unlimited edits & premium design.</p>
+  <h1>CareerAI Pro</h1>
+  <p>Unlock premium resume templates</p>
+
+  <div class="price">₹399 / $4.99</div>
+
+  <ul>
+    <li>✔ Executive Resume Template</li>
+    <li>✔ Unlimited Downloads</li>
+    <li>✔ One-click PDF</li>
+    <li>✔ Lifetime Access</li>
+  </ul>
 
   <!-- STRIPE PAYMENT LINK -->
-  <a href="https://buy.stripe.com/test_bJe7sEbdA6wL9C1bf600000">
-    Pay ₹390 / £2.99
-  </a>
+  <button onclick="pay()">Pay & Unlock Pro</button>
 
-  <p style="font-size:12px;color:#64748b;">After payment, return to resume builder</p>
+  <p class="note">Secure payment powered by Stripe</p>
 </div>
 
 <script>
-/* Demo unlock logic */
-localStorage.setItem("careerai_pro", "true");
+function pay() {
+  // SAVE INTENT (optional)
+  localStorage.setItem("careerai_payment_started", "true");
 
-/* Redirect after payment */
-setTimeout(() => {
-  window.location.href = "resume-builder.html";
-}, 3000);
+  // 🔥 REPLACE this with YOUR Stripe link
+  window.location.href = "https://buy.stripe.com/test_bJe7sEbdA6wL9C1bf600000";
+}
 </script>
 
 </body>
