@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CareerAI – Build Your Resume in Minutes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>CareerAI – Smart Resume Builder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      height: 100vh;
-      background: linear-gradient(135deg, #2563eb, #1e40af);
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #2563eb);
+      color: white;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
       text-align: center;
-    }
-
-    .hero {
-      max-width: 600px;
       padding: 20px;
     }
 
+    .hero {
+      max-width: 700px;
+    }
+
     h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
+      font-size: 48px;
+      margin-bottom: 10px;
     }
 
     p {
@@ -34,31 +36,39 @@
       margin-bottom: 30px;
     }
 
-    a {
-      display: inline-block;
-      padding: 14px 28px;
-      background: white;
-      color: #1e40af;
-      text-decoration: none;
+    .btn {
+      padding: 16px 40px;
       font-size: 18px;
+      background: white;
+      color: #2563eb;
+      border-radius: 10px;
+      text-decoration: none;
       font-weight: bold;
-      border-radius: 8px;
+      display: inline-block;
     }
 
-    a:hover {
-      background: #e5e7eb;
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      opacity: 0.7;
     }
   </style>
 </head>
 
 <body>
   <div class="hero">
-    <h1>Build a Job-Ready Resume in Minutes</h1>
-    <p>
-      CareerAI helps you create professional resumes, cover letters,  
-      and portfolios — powered by AI.
-    </p>
-    <a href="signup.html">Get Started Free</a>
+    <h1>CareerAI</h1>
+    <p>Build professional resumes in minutes using smart AI guidance.</p>
+
+    <a href="resume-builder.html" class="btn">Get Started Free</a>
+
+    <footer>
+      © 2026 CareerAI · Designed for winners 🚀
+    </footer>
   </div>
 </body>
 </html>
