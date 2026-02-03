@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Resume Builder – CareerAI</title>
+  <title>CareerAI – Resume Builder</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -10,47 +10,41 @@
       margin: 0;
       font-family: Arial, sans-serif;
       background: #f8fafc;
+      padding: 20px;
     }
 
-    header {
-      background: #2563eb;
-      color: white;
-      padding: 15px;
+    h1 {
       text-align: center;
+      color: #1e293b;
     }
 
     .container {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 20px;
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
 
-    .form-box, .preview-box {
+    .box {
       background: white;
-      border-radius: 10px;
       padding: 20px;
-      flex: 1;
-      min-width: 300px;
+      border-radius: 10px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    }
-
-    h2 {
-      margin-top: 0;
-      color: #1e293b;
     }
 
     input, textarea {
       width: 100%;
       padding: 10px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       border-radius: 6px;
-      border: 1px solid #cbd5e1;
+      border: 1px solid #ccc;
       font-size: 14px;
     }
 
     textarea {
       resize: vertical;
+      min-height: 80px;
     }
 
     button {
@@ -62,120 +56,116 @@
       border-radius: 6px;
       font-size: 16px;
       cursor: pointer;
-      margin-top: 10px;
     }
 
-    .pro {
-      background: #16a34a;
-    }
-
-    .resume {
-      font-size: 14px;
-      color: #0f172a;
-    }
-
-    .resume h3 {
+    .resume h2 {
       margin-bottom: 5px;
+      color: #1e293b;
     }
 
-    .resume p {
-      margin-top: 0;
-      margin-bottom: 10px;
+    .resume p, .resume li {
+      font-size: 14px;
+      color: #334155;
     }
 
-    .note {
-      font-size: 12px;
-      color: #64748b;
-      margin-top: 10px;
+    ul {
+      padding-left: 18px;
+    }
+
+    .download {
+      margin-top: 15px;
+      background: #0d9488;
+    }
+
+    @media(max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>CareerAI Resume Builder</h1>
-</header>
+<h1>CareerAI – One-Click Resume Builder</h1>
 
 <div class="container">
 
   <!-- FORM -->
-  <div class="form-box">
-    <h2>Enter Your Details</h2>
+  <div class="box">
+    <h2>Fill Your Details</h2>
 
-    <input type="text" id="name" placeholder="Full Name">
-    <input type="text" id="title" placeholder="Job Title (e.g. Software Engineer)">
-    <input type="email" id="email" placeholder="Email">
-    <input type="text" id="phone" placeholder="Phone">
-    <input type="text" id="location" placeholder="Location">
+    <input id="fname" placeholder="First Name">
+    <input id="lname" placeholder="Last Name">
+    <input id="phone" placeholder="Phone Number">
+    <input id="role" placeholder="Job Title">
 
     <textarea id="summary" placeholder="Professional Summary"></textarea>
     <textarea id="skills" placeholder="Skills (comma separated)"></textarea>
-    <textarea id="experience" placeholder="Work Experience"></textarea>
+    <textarea id="experience" placeholder="Experience (bullet points)"></textarea>
     <textarea id="education" placeholder="Education"></textarea>
 
-    <button onclick="generateResume()">Generate Resume</button>
-
-    <button class="pro" onclick="downloadResume()">Generate & Download (Pro)</button>
-
-    <p class="note">
-      ⚠ Free users can preview only.  
-      Download is available for Pro users.
-    </p>
+    <button onclick="generate()">Generate Resume</button>
   </div>
 
-  <!-- PREVIEW -->
-  <div class="preview-box">
-    <h2>Resume Preview</h2>
+  <!-- RESUME PREVIEW -->
+  <div class="box resume" id="resume">
+    <h2 id="rname">Your Name</h2>
+    <p id="rcontact"></p>
 
-    <div class="resume" id="resumePreview">
-      <p>Fill the form to see your resume preview here.</p>
-    </div>
+    <h3>Summary</h3>
+    <p id="rsummary"></p>
+
+    <h3>Skills</h3>
+    <ul id="rskills"></ul>
+
+    <h3>Experience</h3>
+    <ul id="rexperience"></ul>
+
+    <h3>Education</h3>
+    <p id="reducation"></p>
+
+    <button class="download" onclick="window.print()">Download Resume (PDF)</button>
   </div>
 
 </div>
 
 <script>
-  function generateResume() {
-    const name = document.getElementById("name").value;
-    const title = document.getElementById("title").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
-    const location = document.getElementById("location").value;
-    const summary = document.getElementById("summary").value;
-    const skills = document.getElementById("skills").value;
-    const experience = document.getElementById("experience").value;
-    const education = document.getElementById("education").value;
+function generate() {
+  const fname = document.getElementById("fname").value;
+  const lname = document.getElementById("lname").value;
+  const phone = document.getElementById("phone").value;
+  const role = document.getElementById("role").value;
+  const summary = document.getElementById("summary").value;
+  const skills = document.getElementById("skills").value.split(",");
+  const experience = document.getElementById("experience").value.split("\n");
+  const education = document.getElementById("education").value;
 
-    document.getElementById("resumePreview").innerHTML = `
-      <h2>${name}</h2>
-      <p><strong>${title}</strong></p>
-      <p>${email} | ${phone} | ${location}</p>
+  document.getElementById("rname").innerText = fname + " " + lname + " – " + role;
+  document.getElementById("rcontact").innerText = phone;
+  document.getElementById("rsummary").innerText = summary;
+  document.getElementById("reducation").innerText = education;
 
-      <h3>Summary</h3>
-      <p>${summary}</p>
-
-      <h3>Skills</h3>
-      <p>${skills}</p>
-
-      <h3>Experience</h3>
-      <p>${experience}</p>
-
-      <h3>Education</h3>
-      <p>${education}</p>
-    `;
-  }
-
-  function downloadResume() {
-    const isPro = localStorage.getItem("careerai_pro");
-
-    if (isPro === "true") {
-      alert("✅ Pro access confirmed. Resume download will be available in next version.");
-    } else {
-      alert("❌ Upgrade to Pro to download your resume.");
-      window.location.href = "payment.html";
+  const skillList = document.getElementById("rskills");
+  skillList.innerHTML = "";
+  skills.forEach(s => {
+    if (s.trim()) {
+      const li = document.createElement("li");
+      li.innerText = s.trim();
+      skillList.appendChild(li);
     }
-  }
+  });
+
+  const expList = document.getElementById("rexperience");
+  expList.innerHTML = "";
+  experience.forEach(e => {
+    if (e.trim()) {
+      const li = document.createElement("li");
+      li.innerText = e.trim();
+      expList.appendChild(li);
+    }
+  });
+}
 </script>
 
 </body>
