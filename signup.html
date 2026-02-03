@@ -1,101 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Sign Up – CareerAI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: linear-gradient(135deg, #2563eb, #1e3a8a);
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .signup-box {
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      width: 100%;
-      max-width: 380px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-      text-align: center;
-    }
-
-    h1 {
-      margin-bottom: 10px;
-      color: #1e3a8a;
-    }
-
-    p {
-      color: #475569;
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border-radius: 6px;
-      border: 1px solid #cbd5e1;
-      font-size: 15px;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      background: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #1e40af;
-    }
-
-    .bottom-text {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #475569;
-    }
-
-    .bottom-text a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  </style>
+<title>Sign Up – CareerAI</title>
+<style>
+body{
+  font-family:Arial;
+  background:#f1f5f9;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+.box{
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  width:320px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+input,button{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+}
+button{
+  background:#2563eb;
+  color:white;
+  border:none;
+  border-radius:6px;
+}
+</style>
 </head>
-
 <body>
 
-  <div class="signup-box">
-    <h1>Create your account</h1>
-    <p>Start building your job-ready resume with AI</p>
+<div class="box">
+  <h2>Create your account</h2>
 
-    <input type="text" placeholder="Full Name">
-    <input type="email" placeholder="Email Address">
-    <input type="password" placeholder="Password">
+  <!-- GOOGLE FORM CONNECTION -->
+  <form 
+    action="PASTE_GOOGLE_FORM_ACTION_URL_HERE"
+    method="POST"
+    target="hidden_iframe"
+    onsubmit="afterSubmit()"
+  >
+    <input 
+      type="email" 
+      name="entry.XXXXXXXXX" 
+      placeholder="Enter your email" 
+      required
+    >
 
-    <!-- Signup just moves user to dashboard (MVP logic) -->
-    <a href="dashboard.html">
-      <button>Create Account</button>
-    </a>
+    <button type="submit">Continue</button>
+  </form>
 
-    <div class="bottom-text">
-      Already have an account?
-      <a href="login.html">Login</a>
-    </div>
-  </div>
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+</div>
+
+<script>
+function afterSubmit(){
+  localStorage.setItem("careerai_loggedin","true");
+  setTimeout(()=>{
+    window.location.href="resume.html";
+  }, 500);
+}
+</script>
 
 </body>
 </html>
