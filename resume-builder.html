@@ -7,11 +7,16 @@
 
 <style>
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
   background: #f1f5f9;
   padding: 20px;
 }
-h1 { text-align:center; }
+
+h1 {
+  text-align: center;
+  color: #1e293b;
+}
 
 .container {
   max-width: 1100px;
@@ -24,7 +29,7 @@ h1 { text-align:center; }
 .box {
   background: white;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
@@ -34,6 +39,11 @@ input, textarea, select {
   margin-bottom: 12px;
   border-radius: 6px;
   border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
 }
 
 button {
@@ -45,15 +55,22 @@ button {
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.ai {
+  background: #7c3aed;
 }
 
 .download {
   background: #0d9488;
-  margin-top: 10px;
 }
 
-/* Resume styles */
-.resume { font-size:14px; color:#334155; }
+.resume {
+  font-size: 14px;
+  color: #334155;
+}
+
 .classic h2 { color:#1e293b; }
 .modern h2 { color:#2563eb; }
 .executive h2 { color:#7c2d12; }
@@ -63,8 +80,14 @@ button {
   padding-left: 15px;
 }
 
-@media(max-width:900px){
-  .container { grid-template-columns:1fr; }
+ul {
+  padding-left: 18px;
+}
+
+@media(max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
@@ -75,7 +98,7 @@ button {
 
 <div class="container">
 
-<!-- FORM -->
+<!-- LEFT: FORM -->
 <div class="box">
   <h2>Fill Your Details</h2>
 
@@ -90,14 +113,17 @@ button {
   <input id="contact" placeholder="Email | Phone | Location">
 
   <textarea id="summary" placeholder="Professional Summary"></textarea>
+
+  <button class="ai" onclick="aiGenerate()">✨ Auto-Generate with AI</button>
+
   <textarea id="skills" placeholder="Skills (comma separated)"></textarea>
-  <textarea id="experience" placeholder="Experience (one per line)"></textarea>
+  <textarea id="experience" placeholder="Experience (one point per line)"></textarea>
   <textarea id="education" placeholder="Education"></textarea>
 
-  <button onclick="generate()">Generate Resume</button>
+  <button onclick="generateResume()">Generate Resume</button>
 </div>
 
-<!-- PREVIEW -->
+<!-- RIGHT: PREVIEW -->
 <div class="box resume classic" id="resume">
   <h2 id="rname">Your Name</h2>
   <p id="rcontact"></p>
@@ -120,12 +146,27 @@ button {
 </div>
 
 <script>
-function generate() {
+function aiGenerate() {
+  const role = document.getElementById("role").value || "Professional";
+
+  document.getElementById("summary").value =
+    role + " with strong problem-solving skills, hands-on experience, and the ability to deliver results in fast-paced environments.";
+
+  document.getElementById("skills").value =
+    "Communication, Teamwork, Problem Solving, Time Management, Leadership, Analytical Thinking";
+
+  document.getElementById("experience").value =
+    "Worked on real-world projects related to " + role + "\n" +
+    "Collaborated with team members to achieve goals\n" +
+    "Improved quality and efficiency using best practices\n" +
+    "Quickly learned new tools and technologies";
+}
+
+function generateResume() {
   const template = document.getElementById("template").value;
 
-  // Pro lock (simple)
   if (template === "executive" && localStorage.getItem("careerai_pro") !== "true") {
-    alert("Executive template is Pro. Upgrade required.");
+    alert("Executive template is Pro. Please upgrade.");
     return;
   }
 
@@ -145,7 +186,6 @@ function generate() {
   document.getElementById("reducation").innerText =
     document.getElementById("education").value;
 
-  // Skills
   const skills = document.getElementById("skills").value.split(",");
   const sList = document.getElementById("rskills");
   sList.innerHTML = "";
@@ -157,7 +197,6 @@ function generate() {
     }
   });
 
-  // Experience
   const exp = document.getElementById("experience").value.split("\n");
   const eList = document.getElementById("rexperience");
   eList.innerHTML = "";
