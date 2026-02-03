@@ -1,74 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>CareerAI – Smart Resume Builder</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>CareerAI – Build Your Resume with AI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * { box-sizing: border-box; }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#0f172a,#1e293b);
+  color: white;
+}
+header {
+  padding: 80px 20px;
+  text-align: center;
+}
+header h1 {
+  font-size: 38px;
+}
+header p {
+  font-size: 18px;
+  color: #cbd5f5;
+}
+.buttons {
+  margin-top: 30px;
+}
+.buttons a {
+  padding: 14px 26px;
+  margin: 10px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+.free {
+  background: #22c55e;
+  color: #022c22;
+}
+.pro {
+  background: #f97316;
+  color: white;
+}
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0f172a, #2563eb);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-    }
+section {
+  background: #f8fafc;
+  color: #0f172a;
+  padding: 60px 20px;
+  text-align: center;
+}
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.feature {
+  background: white;
+  padding: 20px;
+  width: 260px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
 
-    .hero {
-      max-width: 700px;
-    }
-
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 18px;
-      opacity: 0.9;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      padding: 16px 40px;
-      font-size: 18px;
-      background: white;
-      color: #2563eb;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-    }
-
-    footer {
-      margin-top: 40px;
-      font-size: 14px;
-      opacity: 0.7;
-    }
-  </style>
+footer {
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #94a3b8;
+}
+</style>
 </head>
 
 <body>
-  <div class="hero">
-    <h1>CareerAI</h1>
-    <p>Build professional resumes in minutes using smart AI guidance.</p>
 
-    <a href="resume-builder.html" class="btn">Get Started Free</a>
+<header>
+  <h1>CareerAI</h1>
+  <p>AI-Powered Resume Builder for Students & Professionals</p>
 
-    <footer>
-      © 2026 CareerAI · Designed for winners 🚀
-    </footer>
+  <div class="buttons">
+    <a class="free" href="resume-builder.html">Get Started Free</a>
+    <a class="pro" href="payment.html">Upgrade to Pro</a>
   </div>
+</header>
+
+<section>
+  <h2>Why CareerAI?</h2>
+
+  <div class="features">
+    <div class="feature">
+      <h3>⚡ One-Click Resume</h3>
+      <p>Create professional resumes in seconds.</p>
+    </div>
+
+    <div class="feature">
+      <h3>🎨 Pro Templates</h3>
+      <p>Executive & modern designs that recruiters love.</p>
+    </div>
+
+    <div class="feature">
+      <h3>📄 Instant PDF</h3>
+      <p>Download & print instantly.</p>
+    </div>
+
+    <div class="feature">
+      <h3>🔒 Free + Pro</h3>
+      <p>Upgrade anytime for premium features.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 CareerAI • Built by Praduym 🚀
+</footer>
+
 </body>
 </html>
