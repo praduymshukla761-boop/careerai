@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Pradumn Shukla | CareerAI Profile</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareerAI – The Future of Resumes</title>
 
   <!-- Google Verification -->
   <meta name="google-site-verification" content="gPEVwiDqaVXIgG17HEBd6WmwFIqmO2KbhqXEJWOWoh4" />
@@ -12,174 +12,134 @@
     body {
       margin: 0;
       font-family: Inter, Arial, sans-serif;
-      background: #f5f7fb;
-      color: #111;
+      background: linear-gradient(135deg, #0f172a, #020617);
+      color: white;
     }
 
-    .container {
+    header {
+      padding: 80px 20px;
+      text-align: center;
       max-width: 900px;
       margin: auto;
-      padding: 24px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 14px;
-      padding: 28px;
-      margin-bottom: 24px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
     }
 
     h1 {
-      font-size: 34px;
-      margin: 0;
-    }
-
-    h2 {
-      margin-top: 0;
-      font-size: 22px;
+      font-size: 3rem;
+      margin-bottom: 15px;
     }
 
     p {
+      font-size: 1.2rem;
+      color: #cbd5f5;
       line-height: 1.6;
-      color: #444;
-    }
-
-    .badges span {
-      display: inline-block;
-      background: #eef2ff;
-      color: #1e40af;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      margin-right: 6px;
-      margin-top: 8px;
-    }
-
-    .skill {
-      margin-bottom: 14px;
-    }
-
-    .bar {
-      height: 10px;
-      background: #e5e7eb;
-      border-radius: 999px;
-      overflow: hidden;
-    }
-
-    .fill {
-      height: 100%;
-      background: #2563eb;
     }
 
     .cta {
-      background: #2563eb;
-      color: white;
-      padding: 14px 22px;
-      border-radius: 10px;
-      display: inline-block;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 10px;
+      margin-top: 35px;
     }
 
-    .center {
-      text-align: center;
+    .btn {
+      padding: 14px 28px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .primary {
+      background: #2563eb;
+      color: white;
+    }
+
+    .secondary {
+      background: transparent;
+      border: 1px solid #475569;
+      color: #e5e7eb;
+    }
+
+    .features {
+      background: #020617;
+      padding: 60px 20px;
+    }
+
+    .grid {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #020617;
+      border: 1px solid #1e293b;
+      border-radius: 14px;
+      padding: 25px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #60a5fa;
     }
 
     footer {
       text-align: center;
-      color: #777;
-      font-size: 13px;
-      margin: 40px 0;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: #94a3b8;
     }
   </style>
 </head>
 
 <body>
 
-<div class="container">
+<header>
+  <h1>CareerAI</h1>
+  <p>
+    Not a resume.  
+    A <strong>Career Operating System</strong> built for founders,
+    operators, and high-impact professionals.
+  </p>
 
-  <!-- HERO -->
-  <div class="card">
-    <h1>Pradumn Shukla</h1>
-    <p><strong>Founder-Mindset Operator | CareerAI Builder</strong></p>
-    <p>Email: pradumyshukla761@gmail.com · India</p>
+  <div class="cta">
+    <button class="btn primary" onclick="location.href='resume.html'">
+      Build My Resume
+    </button>
+    <button class="btn secondary" onclick="location.href='payment.html'">
+      Upgrade to Pro
+    </button>
+  </div>
+</header>
 
-    <div class="badges">
-      <span>ATS Optimized</span>
-      <span>Recruiter Friendly</span>
-      <span>CareerAI Pro</span>
+<section class="features">
+  <div class="grid">
+    <div class="card">
+      <h3>ATS-Optimized</h3>
+      <p>Be readable by recruiters and robots. Automatically.</p>
+    </div>
+    <div class="card">
+      <h3>Whole-Person Profile</h3>
+      <p>Not just experience — story, mindset, and future vision.</p>
+    </div>
+    <div class="card">
+      <h3>AI Rewrite Engine</h3>
+      <p>Turn boring bullets into high-impact achievements.</p>
+    </div>
+    <div class="card">
+      <h3>CEO Mode</h3>
+      <p>Switch from job-seeker to founder narrative instantly.</p>
+    </div>
+    <div class="card">
+      <h3>Smart Analytics</h3>
+      <p>Know when recruiters view, scroll, and download.</p>
+    </div>
+    <div class="card">
+      <h3>Premium Exports</h3>
+      <p>PDF, Word, and link-based resumes that convert.</p>
     </div>
   </div>
-
-  <!-- EXECUTIVE SUMMARY -->
-  <div class="card">
-    <h2>Executive Summary</h2>
-    <p>
-      Operations-driven professional with a builder’s mindset.
-      Proven ability to lead teams, optimize execution systems,
-      and convert strategy into measurable outcomes.
-      Currently building <strong>CareerAI</strong> — a next-gen
-      resume intelligence platform.
-    </p>
-  </div>
-
-  <!-- LIFE JOURNEY -->
-  <div class="card">
-    <h2>Life Journey</h2>
-    <p><strong>Early Years:</strong> Discipline, leadership instincts, curiosity</p>
-    <p><strong>Academics:</strong> UG with continuous growth mindset</p>
-    <p><strong>Now:</strong> Building a career product for millions</p>
-  </div>
-
-  <!-- CORE SKILLS -->
-  <div class="card">
-    <h2>Core Skills</h2>
-
-    <div class="skill">
-      Leadership
-      <div class="bar"><div class="fill" style="width:90%"></div></div>
-    </div>
-
-    <div class="skill">
-      Operations & Process
-      <div class="bar"><div class="fill" style="width:88%"></div></div>
-    </div>
-
-    <div class="skill">
-      Strategic Thinking
-      <div class="bar"><div class="fill" style="width:82%"></div></div>
-    </div>
-  </div>
-
-  <!-- IMPACT EXPERIENCE -->
-  <div class="card">
-    <h2>Impact Experience (XYZ Format)</h2>
-    <ul>
-      <li>Improved workflow efficiency by <strong>25%</strong> by redesigning execution systems</li>
-      <li>Led cross-functional teams to deliver consistent outcomes</li>
-      <li>Tracked KPIs and implemented performance dashboards</li>
-    </ul>
-  </div>
-
-  <!-- FOUNDER VISION -->
-  <div class="card">
-    <h2>Founder & CEO Vision</h2>
-    <p>
-      Building a full-stack Career Operating System that replaces
-      outdated resumes with living, intelligent career profiles.
-    </p>
-  </div>
-
-  <!-- PRO CTA -->
-  <div class="card center">
-    <h2>CareerAI Pro</h2>
-    <p>Unlock AI rewriting, ATS matching, analytics, and smart exports.</p>
-    <a class="cta" href="payment.html">Upgrade to Pro</a>
-  </div>
-
-</div>
+</section>
 
 <footer>
   © 2026 CareerAI · Built by Pradumn Shukla
