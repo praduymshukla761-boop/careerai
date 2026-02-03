@@ -1,151 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Premium Resume – CareerAI</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pradumn Shukla | CareerAI Resume</title>
 
-  <!-- Google Verification (KEEP THIS) -->
-  <meta name="google-site-verification" content="gPEVwiDqaVXIgG17HEBd6WmwFIqmO2KbhqXEJWOWoh4" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      font-family: "Arial", sans-serif;
-      background: #f4f6f8;
+    * {
+      box-sizing: border-box;
       margin: 0;
-      padding: 40px;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
     }
 
-    .resume {
-      max-width: 800px;
-      margin: auto;
+    body {
+      background: #f5f7fb;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .card {
       background: #ffffff;
-      padding: 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 22px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
     }
 
     h1 {
-      margin: 0;
-      font-size: 32px;
-      color: #0f172a;
-    }
-
-    .role {
-      font-size: 16px;
-      font-weight: bold;
-      color: #2563eb;
-      margin-top: 5px;
-    }
-
-    .contact {
-      margin-top: 8px;
-      font-size: 13px;
-      color: #475569;
-    }
-
-    hr {
-      border: none;
-      border-top: 2px solid #e2e8f0;
-      margin: 20px 0;
+      font-size: 34px;
+      font-weight: 800;
     }
 
     h2 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    h3 {
       font-size: 16px;
-      color: #0f172a;
+      font-weight: 600;
       margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
 
     p {
+      font-size: 15px;
+      color: #374151;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-right: 8px;
+      margin-top: 10px;
+    }
+
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .muted {
+      color: #6b7280;
       font-size: 14px;
-      line-height: 1.6;
-      color: #334155;
-      margin: 0 0 10px 0;
     }
 
     ul {
       padding-left: 18px;
-      margin: 0;
+      margin-top: 8px;
     }
 
     li {
-      font-size: 14px;
-      margin-bottom: 6px;
-      color: #334155;
+      margin-bottom: 8px;
+      font-size: 15px;
     }
 
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-      font-size: 14px;
+    .skill-bar {
+      margin-bottom: 14px;
     }
 
-    .badge {
-      display: inline-block;
-      font-size: 11px;
-      background: #e0f2fe;
-      color: #0369a1;
-      padding: 4px 8px;
-      border-radius: 4px;
-      margin-right: 6px;
-      margin-top: 8px;
+    .skill-bar span {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .bar {
+      height: 8px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      margin-top: 6px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #2563eb, #4f46e5);
+      border-radius: 999px;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      color: white;
+      padding: 18px;
+      border-radius: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .cta button {
+      background: white;
+      color: #2563eb;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .timeline-item {
+      margin-bottom: 12px;
+    }
+
+    .timeline-item strong {
+      color: #111827;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: #6b7280;
+      margin: 40px 0 20px;
     }
   </style>
 </head>
+
 <body>
 
-<div class="resume">
+<div class="container">
 
   <!-- HEADER -->
-  <h1>Pradumn Shukla</h1>
-  <div class="role">Operations & Team Manager</div>
-  <div class="contact">
-    praduymsukla761@gmail.com | 9685201536 | India
+  <div class="card">
+    <div class="header-flex">
+      <div>
+        <h1>Pradumn Shukla</h1>
+        <p class="muted">Founder-Mindset Operator | CareerAI Builder</p>
+        <p class="muted">📧 praduymsukla761@gmail.com · 🇮🇳 India</p>
+      </div>
+    </div>
+
+    <div>
+      <span class="tag">ATS Optimized</span>
+      <span class="tag">Recruiter Friendly</span>
+      <span class="tag">CareerAI Pro</span>
+    </div>
   </div>
 
-  <span class="badge">ATS Optimized</span>
-  <span class="badge">Recruiter Friendly</span>
-  <span class="badge">CareerAI Pro</span>
-
-  <hr>
-
-  <!-- SUMMARY -->
-  <h2>Professional Summary</h2>
-  <p>
-    Operations-focused professional with hands-on experience in team coordination,
-    process optimization, and performance tracking. Proven ability to improve
-    efficiency, manage cross-functional teams, and deliver measurable business results.
-    Seeking growth-oriented roles where execution and leadership drive impact.
-  </p>
-
-  <!-- SKILLS -->
-  <h2>Core Skills</h2>
-  <div class="skills">
-    <div>• Team Leadership</div>
-    <div>• Process Optimization</div>
-    <div>• KPI & Performance Tracking</div>
-    <div>• Cross-Functional Coordination</div>
-    <div>• Time & Resource Management</div>
-    <div>• Communication & Reporting</div>
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="card">
+    <h2>Executive Summary</h2>
+    <p>
+      Operations-driven professional with a builder’s mindset. Proven ability to
+      lead teams, optimize systems, and convert execution into measurable results.
+      Currently building <strong>CareerAI</strong> — a next-generation resume and career
+      intelligence platform designed for modern hiring.
+    </p>
   </div>
 
-  <hr>
+  <!-- LIFE JOURNEY -->
+  <div class="card">
+    <h2>Life Journey</h2>
 
-  <!-- EXPERIENCE -->
-  <h2>Professional Experience</h2>
-  <ul>
-    <li>Led and coordinated teams to improve workflow efficiency by up to 25%</li>
-    <li>Tracked performance metrics and implemented process improvements</li>
-    <li>Collaborated with multiple departments to ensure smooth operations</li>
-    <li>Supported management in planning, execution, and reporting tasks</li>
-  </ul>
+    <div class="timeline-item">
+      <strong>Early Years:</strong> Leadership instincts, discipline, curiosity
+    </div>
 
-  <hr>
+    <div class="timeline-item">
+      <strong>Academics:</strong> Undergraduate (UG) with continuous growth mindset
+    </div>
 
-  <!-- EDUCATION -->
-  <h2>Education</h2>
-  <p>Undergraduate (UG)</p>
+    <div class="timeline-item">
+      <strong>Now:</strong> Building a career product for millions
+    </div>
+  </div>
+
+  <!-- CORE SKILLS -->
+  <div class="card">
+    <h2>Core Skills</h2>
+
+    <div class="skill-bar">
+      <span>Leadership</span>
+      <div class="bar"><div class="bar-fill" style="width: 90%"></div></div>
+    </div>
+
+    <div class="skill-bar">
+      <span>Operations & Process Optimization</span>
+      <div class="bar"><div class="bar-fill" style="width: 88%"></div></div>
+    </div>
+
+    <div class="skill-bar">
+      <span>Strategic Thinking</span>
+      <div class="bar"><div class="bar-fill" style="width: 85%"></div></div>
+    </div>
+  </div>
+
+  <!-- IMPACT EXPERIENCE -->
+  <div class="card">
+    <h2>Impact Experience (XYZ Format)</h2>
+    <ul>
+      <li>Improved workflow efficiency by <strong>25%</strong> by redesigning execution systems</li>
+      <li>Led cross-functional teams to deliver consistent operational outcomes</li>
+      <li>Tracked KPIs and implemented performance dashboards for leadership</li>
+    </ul>
+  </div>
+
+  <!-- FOUNDER VISION -->
+  <div class="card">
+    <h2>Founder & CEO Vision</h2>
+    <p>
+      Building a full-stack <strong>Career Operating System</strong> that replaces outdated
+      resumes with living, intelligent career profiles powered by AI.
+    </p>
+  </div>
+
+  <!-- PRO CTA -->
+  <div class="card cta">
+    <div>
+      <h3>CareerAI Pro</h3>
+      <p>Unlock AI rewriting, ATS matching, analytics & smart exports</p>
+    </div>
+    <button>Upgrade to Pro</button>
+  </div>
+
+  <footer>
+    © 2026 CareerAI · Living Resume Platform
+  </footer>
 
 </div>
 
