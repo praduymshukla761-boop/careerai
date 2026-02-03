@@ -1,170 +1,192 @@
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CareerAI – Resume Builder</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>CareerAI – One-Click Resume Builder</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8fafc;
-      padding: 20px;
-    }
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f1f5f9;
+  padding: 20px;
+}
 
-    h1 {
-      text-align: center;
-      color: #1e293b;
-    }
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+}
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-    .box {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    }
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
 
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-    }
+button {
+  background: #2563eb;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
 
-    textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
+.template-buttons button {
+  width: 32%;
+  margin-right: 1%;
+  background: #0f172a;
+}
 
-    button {
-      width: 100%;
-      padding: 12px;
-      background: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-    }
+#resume {
+  margin-top: 40px;
+  padding: 30px;
+  border-top: 3px solid #2563eb;
+}
 
-    .resume h2 {
-      margin-bottom: 5px;
-      color: #1e293b;
-    }
+#resume h1 {
+  margin-bottom: 5px;
+}
 
-    .resume p, .resume li {
-      font-size: 14px;
-      color: #334155;
-    }
+.section {
+  margin-top: 20px;
+}
 
-    ul {
-      padding-left: 18px;
-    }
+.section h3 {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
 
-    .download {
-      margin-top: 15px;
-      background: #0d9488;
-    }
+/* Templates */
+.classic { font-family: Arial, sans-serif; }
+.modern { font-family: Georgia, serif; border-left: 5px solid #2563eb; padding-left: 15px; }
+.executive { font-family: "Times New Roman", serif; background: #f8fafc; padding: 25px; }
 
-    @media(max-width: 900px) {
-      .container {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+/* Print */
+@media print {
+  body * { visibility: hidden; }
+  #resume, #resume * { visibility: visible; }
+  #resume { position: absolute; top: 0; left: 0; width: 100%; }
+}
+</style>
 </head>
 
 <body>
 
-<h1>CareerAI – One-Click Resume Builder</h1>
-
 <div class="container">
+<h2>CareerAI – One-Click Resume Builder</h2>
 
-  <!-- FORM -->
-  <div class="box">
-    <h2>Fill Your Details</h2>
+<input id="name" placeholder="Full Name">
+<input id="email" placeholder="Email">
+<input id="phone" placeholder="Phone Number">
+<input id="role" placeholder="Job Title">
 
-    <input id="fname" placeholder="First Name">
-    <input id="lname" placeholder="Last Name">
-    <input id="phone" placeholder="Phone Number">
-    <input id="role" placeholder="Job Title">
+<textarea id="summary" placeholder="Professional Summary"></textarea>
+<textarea id="skills" placeholder="Skills (comma separated)"></textarea>
+<textarea id="experience" placeholder="Experience"></textarea>
+<textarea id="education" placeholder="Education"></textarea>
 
-    <textarea id="summary" placeholder="Professional Summary"></textarea>
-    <textarea id="skills" placeholder="Skills (comma separated)"></textarea>
-    <textarea id="experience" placeholder="Experience (bullet points)"></textarea>
-    <textarea id="education" placeholder="Education"></textarea>
+<button onclick="aiImprove()">Improve with AI ✨</button>
 
-    <button onclick="generate()">Generate Resume</button>
-  </div>
+<div class="template-buttons">
+  <button onclick="setTemplate('classic')">Classic (Free)</button>
+  <button onclick="premiumTemplate('modern')">Modern (Pro)</button>
+  <button onclick="premiumTemplate('executive')">Executive (Pro)</button>
+</div>
 
-  <!-- RESUME PREVIEW -->
-  <div class="box resume" id="resume">
-    <h2 id="rname">Your Name</h2>
-    <p id="rcontact"></p>
+<button onclick="generateResume()">Generate & Download Resume</button>
 
+<!-- Resume Output -->
+<div id="resume" class="classic">
+  <h1 id="r-name"></h1>
+  <p id="r-contact"></p>
+
+  <div class="section">
     <h3>Summary</h3>
-    <p id="rsummary"></p>
-
-    <h3>Skills</h3>
-    <ul id="rskills"></ul>
-
-    <h3>Experience</h3>
-    <ul id="rexperience"></ul>
-
-    <h3>Education</h3>
-    <p id="reducation"></p>
-
-    <button class="download" onclick="window.print()">Download Resume (PDF)</button>
+    <p id="r-summary"></p>
   </div>
 
+  <div class="section">
+    <h3>Skills</h3>
+    <p id="r-skills"></p>
+  </div>
+
+  <div class="section">
+    <h3>Experience</h3>
+    <p id="r-exp"></p>
+  </div>
+
+  <div class="section">
+    <h3>Education</h3>
+    <p id="r-edu"></p>
+  </div>
+</div>
 </div>
 
 <script>
-function generate() {
-  const fname = document.getElementById("fname").value;
-  const lname = document.getElementById("lname").value;
-  const phone = document.getElementById("phone").value;
-  const role = document.getElementById("role").value;
-  const summary = document.getElementById("summary").value;
-  const skills = document.getElementById("skills").value.split(",");
-  const experience = document.getElementById("experience").value.split("\n");
-  const education = document.getElementById("education").value;
+let aiUsage = localStorage.getItem("aiUsage") || 0;
+let proUser = localStorage.getItem("proUser") || false;
 
-  document.getElementById("rname").innerText = fname + " " + lname + " – " + role;
-  document.getElementById("rcontact").innerText = phone;
-  document.getElementById("rsummary").innerText = summary;
-  document.getElementById("reducation").innerText = education;
+function aiImprove() {
+  if (aiUsage >= 1 && !proUser) {
+    alert("AI limit reached. Upgrade to Pro 🚀");
+    window.location.href = "pricing.html";
+    return;
+  }
 
-  const skillList = document.getElementById("rskills");
-  skillList.innerHTML = "";
-  skills.forEach(s => {
-    if (s.trim()) {
-      const li = document.createElement("li");
-      li.innerText = s.trim();
-      skillList.appendChild(li);
-    }
-  });
+  aiUsage++;
+  localStorage.setItem("aiUsage", aiUsage);
 
-  const expList = document.getElementById("rexperience");
-  expList.innerHTML = "";
-  experience.forEach(e => {
-    if (e.trim()) {
-      const li = document.createElement("li");
-      li.innerText = e.trim();
-      expList.appendChild(li);
-    }
-  });
+  document.getElementById("summary").value =
+    "Results-driven professional with strong analytical skills, proven performance, and a commitment to delivering measurable impact.";
+
+  document.getElementById("skills").value =
+    "Communication, Leadership, Problem Solving, Teamwork, Time Management";
+
+  document.getElementById("experience").value =
+    "• Delivered high-quality results across projects\n• Collaborated with cross-functional teams\n• Improved efficiency and performance";
+
+  alert("AI has improved your resume ✅");
+}
+
+function setTemplate(type) {
+  document.getElementById("resume").className = type;
+}
+
+function premiumTemplate(type) {
+  if (!proUser) {
+    alert("This is a Pro template. Upgrade to unlock 🚀");
+    window.location.href = "pricing.html";
+    return;
+  }
+  setTemplate(type);
+}
+
+function generateResume() {
+  document.getElementById("r-name").innerText = document.getElementById("name").value;
+  document.getElementById("r-contact").innerText =
+    document.getElementById("email").value + " | " +
+    document.getElementById("phone").value;
+
+  document.getElementById("r-summary").innerText = document.getElementById("summary").value;
+  document.getElementById("r-skills").innerText = document.getElementById("skills").value;
+  document.getElementById("r-exp").innerText = document.getElementById("experience").value;
+  document.getElementById("r-edu").innerText = document.getElementById("education").value;
+
+  setTimeout(() => window.print(), 500);
 }
 </script>
 
