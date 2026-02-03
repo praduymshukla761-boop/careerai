@@ -1,113 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <title>CareerAI – AI Resume Builder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Google Verification -->
   <meta name="google-site-verification" content="gPEVwiDqaVXIgG17HEBd6WmwFIqmO2KbhqXEJWOWoh4" />
 
-  <title>CareerAI</title>
-</head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO -->
+  <meta name="description" content="CareerAI helps you build professional resumes instantly using AI. Create, improve and download resumes in one click.">
+  <meta name="keywords" content="AI Resume Builder, Resume Generator, CareerAI, CV Maker">
 
   <style>
     body {
       margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: linear-gradient(135deg, #2563eb, #1e3a8a);
-      color: white;
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
     }
-
     header {
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header h2 {
-      margin: 0;
-    }
-
-    header a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
-    }
-
-    .hero {
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 80px 20px;
       text-align: center;
-      padding: 20px;
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      color: white;
     }
-
-    .hero-box {
-      max-width: 700px;
-    }
-
-    .hero h1 {
-      font-size: 44px;
+    header h1 {
+      font-size: 42px;
       margin-bottom: 15px;
     }
-
-    .hero p {
+    header p {
       font-size: 18px;
-      opacity: 0.9;
-      margin-bottom: 30px;
-      line-height: 1.6;
+      max-width: 600px;
+      margin: auto;
     }
-
     .cta {
-      background: white;
-      color: #1e3a8a;
-      padding: 15px 32px;
-      font-size: 18px;
-      border-radius: 8px;
+      margin-top: 30px;
+    }
+    .cta a {
       text-decoration: none;
+      padding: 14px 30px;
+      background: white;
+      color: #2563eb;
+      border-radius: 8px;
       font-weight: bold;
+      margin: 10px;
       display: inline-block;
     }
 
-    .cta:hover {
-      background: #e5e7eb;
-    }
-
-    .features {
-      background: #f8fafc;
-      color: #111;
+    section {
       padding: 60px 20px;
-      text-align: center;
-    }
-
-    .features h2 {
-      font-size: 32px;
-      margin-bottom: 40px;
-    }
-
-    .feature-grid {
-      max-width: 900px;
+      max-width: 1100px;
       margin: auto;
+    }
+    .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
+      gap: 25px;
     }
-
-    .feature {
+    .card {
       background: white;
       padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #2563eb;
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      text-align: center;
+    }
+    .price {
+      font-size: 36px;
+      font-weight: bold;
     }
 
     footer {
       background: #0f172a;
-      padding: 30px;
+      color: #cbd5f5;
       text-align: center;
+      padding: 30px;
       font-size: 14px;
-      opacity: 0.8;
     }
   </style>
 </head>
@@ -115,47 +93,54 @@
 <body>
 
 <header>
-  <h2>CareerAI</h2>
-  <div>
+  <h1>Build Your Resume with AI 🚀</h1>
+  <p>Create professional, job-ready resumes in minutes. Powered by AI. Trusted by future professionals.</p>
+  <div class="cta">
+    <a href="signup.html">Get Started Free</a>
     <a href="login.html">Login</a>
-    <a href="signup.html">Sign up</a>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-box">
-    <h1>Build Job-Ready Resumes with AI</h1>
-    <p>
-      Create professional resumes, cover letters, and portfolios  
-      in minutes. Optimized for recruiters and ATS systems.
-    </p>
-    <a href="signup.html" class="cta">Get Started Free</a>
+<section>
+  <h2 style="text-align:center;">Why CareerAI?</h2>
+  <div class="features">
+    <div class="card">
+      <h3>⚡ One-Click Resume</h3>
+      <p>Create resumes instantly without formatting headaches.</p>
+    </div>
+    <div class="card">
+      <h3>🤖 AI Improvements</h3>
+      <p>Upgrade content using AI to sound professional & confident.</p>
+    </div>
+    <div class="card">
+      <h3>📄 Instant PDF</h3>
+      <p>Download ATS-friendly PDFs in one click.</p>
+    </div>
   </div>
 </section>
 
-<section class="features">
-  <h2>Why CareerAI?</h2>
-
-  <div class="feature-grid">
-    <div class="feature">
-      <h3>AI Resume Builder</h3>
-      <p>Create resumes tailored to job roles with smart AI suggestions.</p>
+<section>
+  <h2 style="text-align:center;">Simple Pricing</h2>
+  <div class="pricing">
+    <div class="card">
+      <h3>Free</h3>
+      <p class="price">₹0</p>
+      <p>Classic resume template</p>
+      <a href="resume-builder.html">Start Free</a>
     </div>
 
-    <div class="feature">
-      <h3>ATS Optimized</h3>
-      <p>Pass applicant tracking systems used by top companies.</p>
-    </div>
-
-    <div class="feature">
-      <h3>Pro Templates</h3>
-      <p>Modern, executive templates used by real professionals.</p>
+    <div class="card">
+      <h3>Pro</h3>
+      <p class="price">₹390</p>
+      <p>Modern + Executive templates</p>
+      <p>Unlimited edits</p>
+      <a href="payment.html">Upgrade to Pro</a>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2026 CareerAI. All rights reserved.
+  © 2026 CareerAI. Built with ❤️ by Pradumn  
 </footer>
 
 </body>
