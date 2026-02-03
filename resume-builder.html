@@ -1,253 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pradumn Shukla | Career Profile</title>
-
-  <!-- Google Verification (keep if you want SEO) -->
-  <meta name="google-site-verification" content="gPEVwiDqaVXIgG17HEBd6WmwFIqmO2KbhqXEJWOWoh4" />
+  <meta charset="UTF-8">
+  <title>Resume Builder – CareerAI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    :root {
-      --primary: #2563eb;
-      --dark: #0f172a;
-      --gray: #475569;
-      --light: #f8fafc;
-      --card: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Inter", Arial, sans-serif;
-    }
-
     body {
-      background: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
-      padding: 24px;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      padding: 15px;
+      text-align: center;
     }
 
     .container {
-      max-width: 900px;
-      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      gap: 20px;
     }
 
-    .card {
-      background: var(--card);
-      border-radius: 14px;
-      padding: 28px;
-      margin-bottom: 24px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-    }
-
-    h1 {
-      font-size: 32px;
-      font-weight: 800;
+    .form-box, .preview-box {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      flex: 1;
+      min-width: 300px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     }
 
     h2 {
-      font-size: 22px;
+      margin-top: 0;
+      color: #1e293b;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
       margin-bottom: 12px;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      font-size: 14px;
     }
 
-    h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
+    textarea {
+      resize: vertical;
     }
 
-    p {
-      color: var(--gray);
-      margin-bottom: 10px;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #e0e7ff;
-      color: var(--primary);
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-      margin-right: 6px;
-      margin-top: 6px;
-    }
-
-    .header {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .sub {
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    .section-title {
-      border-left: 4px solid var(--primary);
-      padding-left: 12px;
-      margin-bottom: 16px;
-    }
-
-    ul {
-      padding-left: 18px;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    .skill-bar {
-      margin-bottom: 12px;
-    }
-
-    .skill-bar span {
-      font-weight: 600;
-    }
-
-    .bar {
-      background: #e5e7eb;
-      border-radius: 999px;
-      overflow: hidden;
-      height: 10px;
-      margin-top: 6px;
-    }
-
-    .fill {
-      background: var(--primary);
-      height: 100%;
-    }
-
-    .cta {
-      text-align: center;
-    }
-
-    .button {
-      background: var(--primary);
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #2563eb;
       color: white;
-      padding: 14px 22px;
-      border-radius: 10px;
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-block;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
       margin-top: 10px;
     }
 
-    .footer {
-      text-align: center;
-      color: var(--gray);
-      font-size: 14px;
-      margin-top: 20px;
+    .pro {
+      background: #16a34a;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 26px;
-      }
+    .resume {
+      font-size: 14px;
+      color: #0f172a;
+    }
+
+    .resume h3 {
+      margin-bottom: 5px;
+    }
+
+    .resume p {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 10px;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
 
-    <!-- HEADER -->
-    <div class="card header">
-      <h1>Pradumn Shukla</h1>
-      <p class="sub">Founder-Mindset Operator | CareerAI Builder</p>
-      <p>📧 praduymsukla761@gmail.com · 🇮🇳 India</p>
+<header>
+  <h1>CareerAI Resume Builder</h1>
+</header>
 
-      <div>
-        <span class="tag">ATS Optimized</span>
-        <span class="tag">Recruiter Friendly</span>
-        <span class="tag">CareerAI Pro</span>
-      </div>
-    </div>
+<div class="container">
 
-    <!-- EXECUTIVE SUMMARY -->
-    <div class="card">
-      <div class="section-title">
-        <h2>Executive Summary</h2>
-      </div>
-      <p>
-        Operations-driven professional with a builder’s mindset.
-        Proven ability to lead teams, optimize systems, and convert execution into measurable results.
-        Currently building <strong>CareerAI</strong> — a next-gen resume intelligence platform.
-      </p>
-    </div>
+  <!-- FORM -->
+  <div class="form-box">
+    <h2>Enter Your Details</h2>
 
-    <!-- LIFE JOURNEY -->
-    <div class="card">
-      <div class="section-title">
-        <h2>Life Journey</h2>
-      </div>
-      <ul>
-        <li><strong>Early Years:</strong> Leadership instincts, discipline, curiosity</li>
-        <li><strong>Academics:</strong> Undergraduate with continuous growth mindset</li>
-        <li><strong>Now:</strong> Building a career product for millions</li>
-      </ul>
-    </div>
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="text" id="title" placeholder="Job Title (e.g. Software Engineer)">
+    <input type="email" id="email" placeholder="Email">
+    <input type="text" id="phone" placeholder="Phone">
+    <input type="text" id="location" placeholder="Location">
 
-    <!-- CORE SKILLS -->
-    <div class="card">
-      <div class="section-title">
-        <h2>Core Skills</h2>
-      </div>
+    <textarea id="summary" placeholder="Professional Summary"></textarea>
+    <textarea id="skills" placeholder="Skills (comma separated)"></textarea>
+    <textarea id="experience" placeholder="Work Experience"></textarea>
+    <textarea id="education" placeholder="Education"></textarea>
 
-      <div class="skill-bar">
-        <span>Leadership</span>
-        <div class="bar"><div class="fill" style="width:90%"></div></div>
-      </div>
+    <button onclick="generateResume()">Generate Resume</button>
 
-      <div class="skill-bar">
-        <span>Operations & Process</span>
-        <div class="bar"><div class="fill" style="width:88%"></div></div>
-      </div>
+    <button class="pro" onclick="downloadResume()">Generate & Download (Pro)</button>
 
-      <div class="skill-bar">
-        <span>Strategic Thinking</span>
-        <div class="bar"><div class="fill" style="width:85%"></div></div>
-      </div>
-    </div>
-
-    <!-- IMPACT EXPERIENCE -->
-    <div class="card">
-      <div class="section-title">
-        <h2>Impact Experience (XYZ Format)</h2>
-      </div>
-      <ul>
-        <li>Improved workflow efficiency by <strong>25%</strong> by redesigning execution systems</li>
-        <li>Led cross-functional teams to deliver consistent outcomes</li>
-        <li>Tracked KPIs and implemented performance dashboards</li>
-      </ul>
-    </div>
-
-    <!-- FOUNDER VISION -->
-    <div class="card">
-      <div class="section-title">
-        <h2>Founder & CEO Vision</h2>
-      </div>
-      <p>
-        Building a full-stack Career Operating System that replaces outdated resumes
-        with living, intelligent career profiles.
-      </p>
-    </div>
-
-    <!-- CTA -->
-    <div class="card cta">
-      <h2>CareerAI Pro</h2>
-      <p>Unlock AI rewriting, ATS matching, analytics, and smart exports.</p>
-      <a href="payment.html" class="button">Upgrade to Pro</a>
-    </div>
-
-    <div class="footer">
-      © 2026 CareerAI · Built with vision, not templates
-    </div>
-
+    <p class="note">
+      ⚠ Free users can preview only.  
+      Download is available for Pro users.
+    </p>
   </div>
+
+  <!-- PREVIEW -->
+  <div class="preview-box">
+    <h2>Resume Preview</h2>
+
+    <div class="resume" id="resumePreview">
+      <p>Fill the form to see your resume preview here.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function generateResume() {
+    const name = document.getElementById("name").value;
+    const title = document.getElementById("title").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const location = document.getElementById("location").value;
+    const summary = document.getElementById("summary").value;
+    const skills = document.getElementById("skills").value;
+    const experience = document.getElementById("experience").value;
+    const education = document.getElementById("education").value;
+
+    document.getElementById("resumePreview").innerHTML = `
+      <h2>${name}</h2>
+      <p><strong>${title}</strong></p>
+      <p>${email} | ${phone} | ${location}</p>
+
+      <h3>Summary</h3>
+      <p>${summary}</p>
+
+      <h3>Skills</h3>
+      <p>${skills}</p>
+
+      <h3>Experience</h3>
+      <p>${experience}</p>
+
+      <h3>Education</h3>
+      <p>${education}</p>
+    `;
+  }
+
+  function downloadResume() {
+    const isPro = localStorage.getItem("careerai_pro");
+
+    if (isPro === "true") {
+      alert("✅ Pro access confirmed. Resume download will be available in next version.");
+    } else {
+      alert("❌ Upgrade to Pro to download your resume.");
+      window.location.href = "payment.html";
+    }
+  }
+</script>
+
 </body>
 </html>
