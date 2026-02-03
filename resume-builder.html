@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>CareerAI – Resume Builder</title>
+<title>CareerAI – AI Resume Builder</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -10,75 +10,57 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #f1f5f9;
-  color: #0f172a;
 }
-
 h1 {
   text-align: center;
   padding: 20px;
 }
-
 .container {
   display: flex;
-  flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
+  flex-wrap: wrap;
 }
-
 .box {
   background: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   flex: 1;
   min-width: 300px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
-
 input, textarea, select {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  border-radius: 6px;
-  border: 1px solid #cbd5e1;
 }
-
 button {
-  padding: 12px;
   width: 100%;
+  padding: 12px;
   border: none;
   border-radius: 8px;
-  font-weight: bold;
   cursor: pointer;
-  margin-top: 10px;
+  font-weight: bold;
 }
-
+.ai {
+  background: #7c3aed;
+  color: white;
+}
 .generate {
   background: #2563eb;
   color: white;
 }
-
 .download {
   background: #16a34a;
   color: white;
+  margin-top: 10px;
 }
-
-.pro {
-  background: #f97316;
-  color: white;
-}
-
 .resume {
   border-left: 5px solid #2563eb;
 }
-
-.resume.modern {
-  border-left-color: #16a34a;
-}
-
-.resume.executive {
+.executive {
   border-left-color: #f97316;
 }
-
 @media print {
   button, select {
     display: none;
@@ -89,104 +71,106 @@ button {
 
 <body>
 
-<h1>CareerAI – Resume Builder</h1>
+<h1>CareerAI – AI Resume Builder</h1>
 
 <div class="container">
 
-  <!-- FORM -->
-  <div class="box">
-    <h2>Fill Your Details</h2>
+<!-- FORM -->
+<div class="box">
+  <h2>Your Details</h2>
 
-    <select id="template">
-      <option value="classic">Classic (Free)</option>
-      <option value="modern">Modern (Free)</option>
-      <option value="executive">Executive (Pro)</option>
-    </select>
+  <select id="template">
+    <option value="classic">Classic (Free)</option>
+    <option value="executive">Executive (Pro)</option>
+  </select>
 
-    <input id="name" placeholder="Full Name">
-    <input id="role" placeholder="Job Title">
-    <input id="contact" placeholder="Email | Phone | Location">
+  <input id="name" placeholder="Full Name">
+  <input id="role" placeholder="Job Title (important for AI)">
+  <input id="contact" placeholder="Email | Phone | Location">
 
-    <textarea id="summary" placeholder="Professional Summary"></textarea>
-    <textarea id="skills" placeholder="Skills (comma separated)"></textarea>
-    <textarea id="experience" placeholder="Experience (one point per line)"></textarea>
-    <textarea id="education" placeholder="Education"></textarea>
+  <textarea id="summary" placeholder="Professional Summary"></textarea>
 
-    <button class="generate" onclick="generateResume()">Generate Resume</button>
-    <button class="pro" onclick="upgrade()">Upgrade to Pro</button>
-  </div>
+  <button class="ai" onclick="aiGenerate()">✨ Generate with AI</button>
 
-  <!-- PREVIEW -->
-  <div class="box resume classic" id="resume">
-    <h2 id="rname">Your Name</h2>
-    <p id="rcontact"></p>
+  <textarea id="skills" placeholder="Skills (comma separated)"></textarea>
+  <textarea id="experience" placeholder="Experience (one point per line)"></textarea>
+  <textarea id="education" placeholder="Education"></textarea>
 
-    <h3>Summary</h3>
-    <p id="rsummary"></p>
+  <button class="generate" onclick="generateResume()">Generate Resume</button>
+</div>
 
-    <h3>Skills</h3>
-    <ul id="rskills"></ul>
+<!-- PREVIEW -->
+<div class="box resume classic" id="resume">
+  <h2 id="rname">Your Name</h2>
+  <p id="rcontact"></p>
 
-    <h3>Experience</h3>
-    <ul id="rexperience"></ul>
+  <h3>Summary</h3>
+  <p id="rsummary"></p>
 
-    <h3>Education</h3>
-    <p id="reducation"></p>
+  <h3>Skills</h3>
+  <ul id="rskills"></ul>
 
-    <button class="download" onclick="window.print()">Download PDF</button>
-  </div>
+  <h3>Experience</h3>
+  <ul id="rexperience"></ul>
+
+  <h3>Education</h3>
+  <p id="reducation"></p>
+
+  <button class="download" onclick="window.print()">Download PDF</button>
+</div>
 
 </div>
 
 <script>
+function aiGenerate() {
+  const role = document.getElementById("role").value || "Professional";
+
+  document.getElementById("summary").value =
+    role + " with strong experience in delivering high-quality results, collaborating with teams, and solving real-world problems. Highly motivated, detail-oriented, and eager to grow in a professional environment.";
+
+  document.getElementById("skills").value =
+    "Communication, Teamwork, Problem Solving, Time Management, Leadership, Critical Thinking";
+
+  document.getElementById("experience").value =
+    "Worked as a " + role + " on real-world projects\n" +
+    "Collaborated with cross-functional teams to achieve business goals\n" +
+    "Improved efficiency and quality through best practices\n" +
+    "Adapted quickly to new tools and technologies";
+}
+
 function generateResume() {
   const template = document.getElementById("template").value;
 
-  if (template === "executive" && !localStorage.getItem("careerai_pro")) {
-    alert("This is a PRO template. Please upgrade.");
+  if (template === "executive" && localStorage.getItem("careerai_pro") !== "true") {
+    alert("🔒 Executive template is Pro only");
     window.location.href = "payment.html";
     return;
   }
 
   document.getElementById("resume").className = "box resume " + template;
 
-  document.getElementById("rname").innerText =
-    document.getElementById("name").value;
+  rname.innerText = name.value;
+  rcontact.innerText = contact.value;
+  rsummary.innerText = summary.value;
+  reducation.innerText = education.value;
 
-  document.getElementById("rcontact").innerText =
-    document.getElementById("contact").value;
-
-  document.getElementById("rsummary").innerText =
-    document.getElementById("summary").value;
-
-  // Skills
-  const skills = document.getElementById("skills").value.split(",");
-  document.getElementById("rskills").innerHTML = "";
-  skills.forEach(skill => {
-    if(skill.trim()){
+  rskills.innerHTML = "";
+  skills.value.split(",").forEach(s => {
+    if (s.trim()) {
       const li = document.createElement("li");
-      li.innerText = skill.trim();
-      document.getElementById("rskills").appendChild(li);
+      li.innerText = s.trim();
+      rskills.appendChild(li);
     }
   });
 
-  // Experience
-  const exp = document.getElementById("experience").value.split("\n");
-  document.getElementById("rexperience").innerHTML = "";
-  exp.forEach(e => {
-    if(e.trim()){
+  rexperience.innerHTML = "";
+  experience.value.split("\n").forEach(e => {
+    if (e.trim()) {
       const li = document.createElement("li");
       li.innerText = e.trim();
-      document.getElementById("rexperience").appendChild(li);
+      rexperience.appendChild(li);
     }
   });
-
-  document.getElementById("reducation").innerText =
-    document.getElementById("education").value;
-}
-
-function upgrade() {
-  window.location.href = "payment.html";
 }
 </script>
 
